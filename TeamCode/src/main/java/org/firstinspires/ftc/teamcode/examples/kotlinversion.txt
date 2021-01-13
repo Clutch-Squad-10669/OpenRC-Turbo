@@ -1,0 +1,17 @@
+object TrajectoryGen {
+    private val startPose = Pose2d(-62.0, -50.0, 0.0.toRadians)
+
+    fun createTrajectory(): ArrayList<Trajectory> {
+        val list = ArrayList<Trajectory>()
+        val builder2 = TrajectoryBuilder(Pose2d(54.0, -60.0, 0.0), 0.0, combinedConstraints)
+
+        builder2
+                //back to second wobble
+            .lineToSplineHeading(Pose2d(-20.0, -36.0, -12.88));
+
+        list.add(builder2.build())
+        return list
+    }
+
+}
+
