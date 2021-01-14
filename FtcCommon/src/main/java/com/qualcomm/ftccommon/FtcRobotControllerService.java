@@ -109,7 +109,7 @@ public class FtcRobotControllerService extends Service implements NetworkConnect
   private Future          bootIndicatorOff = null;
   private LightBlinker    livenessIndicatorBlinker = null;
   private Future          robotSetupFuture = null;
-  private WifiDirectAgent wifiDirectAgent = WifiDirectAgent.getInstance();
+  private final WifiDirectAgent wifiDirectAgent = WifiDirectAgent.getInstance();
   private final Object    wifiDirectCallbackLock = new Object();
 
   private WebServer webServer;

@@ -277,10 +277,10 @@ public class ModernRoboticsUsbDeviceInterfaceModule extends ModernRoboticsUsbI2c
   // tracks which ports have a registered callback
   private final I2cPortReadyCallback[] i2cPortReadyCallback = new I2cPortReadyCallback[NUMBER_OF_PORTS];
 
-  private ReadWriteRunnableSegment[] analogVoltagePortSegments = new ReadWriteRunnableSegment[SEGMENT_KEY_ANALOG_VOLTAGE_PORT_MAP.length];
-  private ReadWriteRunnableSegment[] pulseOutputPortSegments = new ReadWriteRunnableSegment[SEGMENT_KEY_PULSE_OUTPUT_PORT_MAP.length];
-  private ReadWriteRunnableSegment[] i2cPortSegments = new ReadWriteRunnableSegment[SEGMENT_KEY_I2C_PORT_MAP.length];
-  private ReadWriteRunnableSegment[] i2cPortFlagOnlySegments = new ReadWriteRunnableSegment[SEGMENT_KEY_I2C_PORT_FLAG_ONLY_MAP.length];
+  private final ReadWriteRunnableSegment[] analogVoltagePortSegments = new ReadWriteRunnableSegment[SEGMENT_KEY_ANALOG_VOLTAGE_PORT_MAP.length];
+  private final ReadWriteRunnableSegment[] pulseOutputPortSegments = new ReadWriteRunnableSegment[SEGMENT_KEY_PULSE_OUTPUT_PORT_MAP.length];
+  private final ReadWriteRunnableSegment[] i2cPortSegments = new ReadWriteRunnableSegment[SEGMENT_KEY_I2C_PORT_MAP.length];
+  private final ReadWriteRunnableSegment[] i2cPortFlagOnlySegments = new ReadWriteRunnableSegment[SEGMENT_KEY_I2C_PORT_FLAG_ONLY_MAP.length];
 
   protected final byte[] lastI2cPortModes = new byte[NUMBER_OF_PORTS];
 

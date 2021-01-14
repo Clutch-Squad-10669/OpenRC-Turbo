@@ -97,11 +97,11 @@ public class VL53L0X extends I2cDeviceSynchDevice<I2cDeviceSynch> implements Dis
     // get manufacturer's model ID number.
     public byte getModelID() {
         return readReg(Register.IDENTIFICATION_MODEL_ID);
-    };
+    }
 
     @Override
     public double getDistance(DistanceUnit unit) {
-        double range = (double)this.readRangeContinuousMillimeters();
+        double range = this.readRangeContinuousMillimeters();
 
         if (unit == DistanceUnit.CM) {
             return range / 10;
@@ -238,7 +238,7 @@ public class VL53L0X extends I2cDeviceSynchDevice<I2cDeviceSynch> implements Dis
     //uint32_t measurement_timing_budget_us;
     long measurement_timing_budget_us;
 
-    enum vcselPeriodType { VcselPeriodPreRange, VcselPeriodFinalRange };
+    enum vcselPeriodType { VcselPeriodPreRange, VcselPeriodFinalRange }
 
     protected int io_timeout = 0;
     protected ElapsedTime ioElapsedTime;
@@ -353,7 +353,7 @@ public class VL53L0X extends I2cDeviceSynchDevice<I2cDeviceSynch> implements Dis
         // The SPAD map (RefGoodSpadMap) is read by VL53L0X_get_info_from_device() in
         // the API, but the same data seems to be more easily readable from
         // GLOBAL_CONFIG_SPAD_ENABLES_REF_0 through _6, so read it from there
-        byte ref_spad_map[];
+        byte[] ref_spad_map;
         ref_spad_map =
         this.deviceClient.read(GLOBAL_CONFIG_SPAD_ENABLES_REF_0.bVal, 6);
 
@@ -610,7 +610,7 @@ public class VL53L0X extends I2cDeviceSynchDevice<I2cDeviceSynch> implements Dis
         //  *count = tmp & 0x7f;
         //  *type_is_aperture = (tmp >> 7) & 0x01;
         spad_count = (byte) (tmp & 0x7f);
-        spad_type_is_aperture = ((tmp >> 7) & 0x01) == 0 ? false : true;
+        spad_type_is_aperture = ((tmp >> 7) & 0x01) != 0;
 
         writeReg(0x81, 0x00);
         writeReg(0xFF, 0x06);
@@ -686,11 +686,11 @@ public class VL53L0X extends I2cDeviceSynchDevice<I2cDeviceSynch> implements Dis
     protected void getSequenceStepEnables(SequenceStepEnables enables) {
         int sequence_config = readReg(SYSTEM_SEQUENCE_CONFIG);
 
-        enables.tcc = ((sequence_config >> 4) & 0x1) !=0 ? true : false;
-        enables.dss = ((sequence_config >> 3) & 0x1) != 0 ? true : false;
-        enables.msrc = ((sequence_config >> 2) & 0x1) != 0 ? true : false;
-        enables.pre_range = ((sequence_config >> 6) & 0x1) != 0 ? true : false;
-        enables.final_range = ((sequence_config >> 7) & 0x1) != 0 ? true : false;
+        enables.tcc = ((sequence_config >> 4) & 0x1) != 0;
+        enables.dss = ((sequence_config >> 3) & 0x1) != 0;
+        enables.msrc = ((sequence_config >> 2) & 0x1) != 0;
+        enables.pre_range = ((sequence_config >> 6) & 0x1) != 0;
+        enables.final_range = ((sequence_config >> 7) & 0x1) != 0;
     }
 
 
@@ -732,8 +732,8 @@ public class VL53L0X extends I2cDeviceSynchDevice<I2cDeviceSynch> implements Dis
     // always stored in a uint16_t.
     int decodeTimeout(int reg_val) {
         // format: "(LSByte * 2^MSByte) + 1"
-        return (int) ((reg_val & 0x00FF) <<
-                (int) ((reg_val & 0xFF00) >> 8)) + 1;
+        return ((reg_val & 0x00FF) <<
+                ((reg_val & 0xFF00) >> 8)) + 1;
     }
 
     // Get the VCSEL pulse period in PCLKs for the given period type.
@@ -996,7 +996,7 @@ public class VL53L0X extends I2cDeviceSynchDevice<I2cDeviceSynch> implements Dis
 
         // assumptions: Linearity Corrective Gain is 1000 (default);
         // fractional ranging is not enabled
-        int range = (int)TypeConversion.byteArrayToShort(deviceClient.read(RESULT_RANGE_STATUS.bVal + 10, 2));
+        int range = TypeConversion.byteArrayToShort(deviceClient.read(RESULT_RANGE_STATUS.bVal + 10, 2));
         writeReg(SYSTEM_INTERRUPT_CLEAR.bVal, 0x01);
 
         return range;

@@ -217,9 +217,9 @@ public final class I2cDeviceSynchImpl extends I2cDeviceSynchReadHistoryImpl impl
         SWITCHINGTOREADMODE, // the controller is transitioning to read mode: at the next
                              // portIsReady() callback, it will be there (used in Legacy Module only)
         READ                 // the port is in read mode, and can accept reads on the port data
-        };
+        }
 
-    //----------------------------------------------------------------------------------------------
+        //----------------------------------------------------------------------------------------------
     // Construction
     //----------------------------------------------------------------------------------------------
 
@@ -241,8 +241,8 @@ public final class I2cDeviceSynchImpl extends I2cDeviceSynchReadHistoryImpl impl
      */
     public I2cDeviceSynchImpl(I2cDevice i2cDevice, I2cAddr i2cAddr, boolean isI2cDeviceOwned)
         {
-        this.loggingTag             = String.format("%s:i2cSynch(%s)", RobotLog.TAG, i2cDevice.getConnectionInfo());;
-        this.i2cAddr                = i2cAddr;
+        this.loggingTag             = String.format("%s:i2cSynch(%s)", RobotLog.TAG, i2cDevice.getConnectionInfo());
+            this.i2cAddr                = i2cAddr;
 
         this.i2cDevice              = i2cDevice;
         this.isI2cDeviceOwned       = isI2cDeviceOwned;

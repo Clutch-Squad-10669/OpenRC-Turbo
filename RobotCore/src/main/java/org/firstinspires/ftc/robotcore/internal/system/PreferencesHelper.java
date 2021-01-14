@@ -154,7 +154,7 @@ public class PreferencesHelper
         boolean changed = false;
         for (;;)
             {
-            if (contains(prefName) && newValue.equals(readStringSet(prefName, (Set<String>)null)))
+            if (contains(prefName) && newValue.equals(readStringSet(prefName, null)))
                 break;
             logWrite(prefName, newValue);
             sharedPreferences.edit()

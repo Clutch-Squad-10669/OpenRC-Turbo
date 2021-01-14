@@ -81,8 +81,9 @@ public class MonitoredUsbDeviceConnection
     protected       int                             msUsbWriteLockAcquire = 250;  // finger in the wind
     protected final static DebuggableReentrantLock  usbWriteLock = new DebuggableReentrantLock();
 
-    protected enum FailureType { UNKNOWN, WRITE, CONTROL_TRANSFER };
-    protected       Callable<RobotUsbException>     failureAction;
+    protected enum FailureType { UNKNOWN, WRITE, CONTROL_TRANSFER }
+
+        protected       Callable<RobotUsbException>     failureAction;
     protected       FailureType                     failureType = FailureType.UNKNOWN;
 
     protected       Callable<RobotUsbException>     bulkTransferAction;
@@ -152,8 +153,8 @@ public class MonitoredUsbDeviceConnection
             {
             @Override public RobotUsbException call()
                 {
-                callResult = delegate.controlTransfer(requestType, request, value, index, buffer, offset, length, timeout);;
-                return null;
+                callResult = delegate.controlTransfer(requestType, request, value, index, buffer, offset, length, timeout);
+                    return null;
                 }
             };
 

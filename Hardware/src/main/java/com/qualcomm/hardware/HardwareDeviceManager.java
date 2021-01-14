@@ -161,7 +161,7 @@ public class HardwareDeviceManager implements DeviceManager {
 
   public  final static Object     scanDevicesLock = new Object();
 
-  private       RobotUsbManager   usbManager;
+  private final RobotUsbManager   usbManager;
   private final SyncdDevice.Manager manager;
   private final Context           context;
 

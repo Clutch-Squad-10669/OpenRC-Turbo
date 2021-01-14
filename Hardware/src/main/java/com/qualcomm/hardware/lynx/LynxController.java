@@ -63,11 +63,11 @@ public abstract class LynxController extends LynxCommExceptionHandler implements
     protected abstract String getTag();
 
     protected Context       context;
-    private   LynxModule    module;
+    private final LynxModule    module;
     protected boolean       isHardwareInitialized;
     protected boolean       isEngaged;    // does the user want us to connect to the underlying device?
     protected boolean       isHooked;     // are we presently connected to the underlying device?
-    private   LynxModuleIntf pretendModule;
+    private final LynxModuleIntf pretendModule;
     protected final WeakReferenceSet<Callback> registeredCallbacks = new WeakReferenceSet<Callback>();
     protected final HardwareDeviceHealthImpl hardwareDeviceHealth;
 

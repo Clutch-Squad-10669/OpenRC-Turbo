@@ -48,7 +48,7 @@ public class SignificantMotionDetection {
     }
 
     private boolean listening;
-    private CopyOnWriteArrayList<SignificantMotionDetectionListener> listeners = new CopyOnWriteArrayList<>();
+    private final CopyOnWriteArrayList<SignificantMotionDetectionListener> listeners = new CopyOnWriteArrayList<>();
     private final SensorManager sensorManager;
     private final Sensor motion;
     private final TriggerListener listener;

@@ -307,7 +307,7 @@ var WEBSOCKET_CORE = function () {
             }
             result = namespaceIterator.next();
         }
-    };
+    }
 
     function onClose(closeEvent) {
         console.log("WebSocket has closed");

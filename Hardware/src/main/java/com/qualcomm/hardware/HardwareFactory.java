@@ -125,7 +125,7 @@ public class HardwareFactory {
 
   public static final String TAG = "HardwareFactory";
 
-  private Context       context;
+  private final Context       context;
   private XmlPullParser xmlPullParser = null;
 
   //------------------------------------------------------------------------------------------------

@@ -65,10 +65,10 @@ public class EditLynxUsbDeviceActivity extends EditUSBDeviceActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lynx_usb_device);
 
-        ListView listView = (ListView) findViewById(R.id.lynxUsbDeviceModules);
+        ListView listView = findViewById(R.id.lynxUsbDeviceModules);
         listView.setOnItemClickListener(editLaunchListener);
 
-        textLynxUsbDeviceName = (EditText) findViewById(R.id.lynxUsbDeviceName);
+        textLynxUsbDeviceName = findViewById(R.id.lynxUsbDeviceName);
 
         EditParameters parameters = EditParameters.fromIntent(this, getIntent());
         deserialize(parameters);
@@ -83,13 +83,13 @@ public class EditLynxUsbDeviceActivity extends EditUSBDeviceActivity
 
     @Override protected void refreshSerialNumber()
         {
-        TextView serialNumberView = (TextView) findViewById(R.id.serialNumber);
+        TextView serialNumberView = findViewById(R.id.serialNumber);
         serialNumberView.setText(formatSerialNumber(this, controllerConfiguration));
         }
 
     protected void populateModules()
         {
-        ListView listView = (ListView) findViewById(R.id.lynxUsbDeviceModules);
+        ListView listView = findViewById(R.id.lynxUsbDeviceModules);
         List<LynxModuleConfiguration> modules = lynxUsbDeviceConfiguration.getModules();
         listKeys = new DisplayNameAndInteger[modules.size()];
         for (int i = 0; i < listKeys.length; i++)
@@ -105,7 +105,7 @@ public class EditLynxUsbDeviceActivity extends EditUSBDeviceActivity
         super.onStart();
         }
 
-    private AdapterView.OnItemClickListener editLaunchListener = new AdapterView.OnItemClickListener()
+    private final AdapterView.OnItemClickListener editLaunchListener = new AdapterView.OnItemClickListener()
         {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id)
@@ -136,7 +136,7 @@ public class EditLynxUsbDeviceActivity extends EditUSBDeviceActivity
                     // Replace that configuration in the module list
                     for (int i = 0; i < lynxUsbDeviceConfiguration.getModules().size(); i++)
                         {
-                        LynxModuleConfiguration existingModule = (LynxModuleConfiguration)lynxUsbDeviceConfiguration.getModules().get(i);
+                        LynxModuleConfiguration existingModule = lynxUsbDeviceConfiguration.getModules().get(i);
                         if (existingModule.getModuleAddress() == newModule.getModuleAddress())
                             {
                             lynxUsbDeviceConfiguration.getModules().set(i, newModule);

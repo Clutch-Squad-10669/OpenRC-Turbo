@@ -129,7 +129,7 @@ public abstract class PermissionValidatorActivity extends Activity {
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults)
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults)
     {
         permissionValidator.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }

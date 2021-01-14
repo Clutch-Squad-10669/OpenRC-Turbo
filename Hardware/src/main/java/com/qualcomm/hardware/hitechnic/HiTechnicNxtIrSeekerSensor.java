@@ -212,7 +212,7 @@ public class HiTechnicNxtIrSeekerSensor extends I2cControllerPortDeviceImpl impl
 
   @Override
   public IrSeekerIndividualSensor[] getIndividualSensors() {
-    IrSeekerIndividualSensor sensors[] = new IrSeekerIndividualSensor[SENSOR_COUNT];
+    IrSeekerIndividualSensor[] sensors = new IrSeekerIndividualSensor[SENSOR_COUNT];
     if (switchingModes) return sensors;
 
     try {

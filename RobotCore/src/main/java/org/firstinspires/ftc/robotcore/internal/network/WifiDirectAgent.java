@@ -186,7 +186,7 @@ import java.util.List;
     public boolean isLooperThread()
         {
         Assert.assertNotNull(looper);
-        return looper.isLooperThread();
+        return CallbackLooper.isLooperThread();
         }
 
     public boolean isWifiDirectEnabled()

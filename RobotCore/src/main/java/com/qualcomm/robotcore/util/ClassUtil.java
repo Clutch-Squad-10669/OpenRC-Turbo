@@ -155,7 +155,7 @@ public class ClassUtil {
     public static Field getDeclaredField(Class clazz, String fieldName)
     {
         try {
-            Field field = clazz.getDeclaredField(fieldName);;
+            Field field = clazz.getDeclaredField(fieldName);
             field.setAccessible(true);
             return field;
         }

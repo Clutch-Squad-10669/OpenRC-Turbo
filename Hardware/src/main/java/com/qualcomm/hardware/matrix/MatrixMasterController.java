@@ -114,7 +114,7 @@ public class MatrixMasterController implements I2cController.I2cPortReadyCallbac
         if (!force) {
             Iterator<MatrixI2cTransaction> it = transactionQueue.iterator();
             while (it.hasNext()) {
-                MatrixI2cTransaction t = (MatrixI2cTransaction)it.next();
+                MatrixI2cTransaction t = it.next();
                 if (t.isEqual(transaction)) {
                     buginf("NO Queue transaction " + transaction.toString());
                     return false;

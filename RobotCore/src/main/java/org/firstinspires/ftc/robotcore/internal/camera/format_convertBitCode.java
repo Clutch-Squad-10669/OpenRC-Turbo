@@ -6,8 +6,8 @@
 package org.firstinspires.ftc.robotcore.internal.camera;
 
 public class format_convertBitCode {
-    private static int bitCode32Length = 2944;
-    private static int bitCode64Length = 3068;
+    private static final int bitCode32Length = 2944;
+    private static final int bitCode64Length = 3068;
 
     public format_convertBitCode() {
     }

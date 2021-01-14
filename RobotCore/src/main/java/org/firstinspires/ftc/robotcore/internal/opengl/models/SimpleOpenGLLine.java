@@ -55,7 +55,7 @@ public class SimpleOpenGLLine
     protected FloatBuffer vertexBuffer;
 
     protected static final int coordinatesPerVertex = 3;
-    protected static final float defaultCoordinates[] =
+    protected static final float[] defaultCoordinates =
             {
             0.0f, 0.0f, 0.0f,
             1.0f, 0.0f, 0.0f
@@ -65,7 +65,7 @@ public class SimpleOpenGLLine
     protected final int vertexStride = coordinatesPerVertex * 4; // 4 bytes per float
 
     // Set color with red, green, blue and alpha (opacity) values
-    protected float color[] = {0.0f, 0.0f, 0.0f, 1.0f};
+    protected float[] color = {0.0f, 0.0f, 0.0f, 1.0f};
 
     //----------------------------------------------------------------------------------------------
     // Construction
@@ -90,7 +90,7 @@ public class SimpleOpenGLLine
 
     public void setVerts(float v0, float v1, float v2, float v3, float v4, float v5)
         {
-        float coords[] = new float[vertexCount * coordinatesPerVertex];
+        float[] coords = new float[vertexCount * coordinatesPerVertex];
 
         coords[0] = v0;
         coords[1] = v1;

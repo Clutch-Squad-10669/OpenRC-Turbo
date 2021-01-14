@@ -44,7 +44,7 @@ import java.util.Locale;
  */
 public class LynxNackException extends Exception
     {
-    private LynxRespondable command;
+    private final LynxRespondable command;
 
     public LynxNackException(LynxRespondable command, String message)
         {

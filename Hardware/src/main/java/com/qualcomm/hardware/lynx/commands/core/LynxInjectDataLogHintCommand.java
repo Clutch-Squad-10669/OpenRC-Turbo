@@ -41,6 +41,7 @@ import com.qualcomm.robotcore.util.TypeConversion;
 
 import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 
 /**
  * Created by bob on 2016-09-01.
@@ -53,7 +54,7 @@ public class LynxInjectDataLogHintCommand extends LynxDekaInterfaceCommand<LynxA
 
     public final static int cbFixed = 1;
     public final static int cbMaxText = 100;
-    public final static Charset charset = Charset.forName("UTF-8");
+    public final static Charset charset = StandardCharsets.UTF_8;
 
      private byte[] payload;
 

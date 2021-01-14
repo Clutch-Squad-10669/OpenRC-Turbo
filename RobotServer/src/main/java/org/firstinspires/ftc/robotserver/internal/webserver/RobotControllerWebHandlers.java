@@ -232,7 +232,8 @@ public class RobotControllerWebHandlers
 
     public static class Redirection implements WebHandler
     {
-        public enum QueryParameters { PRESERVE, DISCARD };
+        public enum QueryParameters { PRESERVE, DISCARD }
+
         private final String targetURI;
         private final QueryParameters queryParameters;
 

@@ -1623,7 +1623,7 @@ public class VuforiaLocalizerImpl implements VuforiaLocalizer
 
     class CoordinateAxes
         {
-        private SolidCylinder axis;
+        private final SolidCylinder axis;
 
         public CoordinateAxes()
             {

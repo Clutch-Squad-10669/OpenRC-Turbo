@@ -1357,7 +1357,7 @@ function is(token, type) {
             }
             else if (this.optionalEndTags.hasOwnProperty(top.tagName)) {
                 stack.pop();
-                continue;
+
             } else {
                 return null;
             }

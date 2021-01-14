@@ -64,12 +64,12 @@ public class PeerDiscoveryManager {
       }
    }
 
-   private InetAddress peerDiscoveryDevice;
+   private final InetAddress peerDiscoveryDevice;
    private final RobocolDatagramSocket socket;
    private ScheduledExecutorService discoveryLoopService;
    private ScheduledFuture<?> discoveryLoopFuture;
    private final PeerDiscovery message;
-   private CountDownLatch interlock = new CountDownLatch(1);
+   private final CountDownLatch interlock = new CountDownLatch(1);
 
    /**
     * Constructor

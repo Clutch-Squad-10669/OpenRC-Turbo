@@ -260,13 +260,13 @@ class MiscAccess extends Access {
         return new Character(value.charAt(0));
       }
     } else if (parameterType.equals(Byte.class)) {
-      return (Byte) (byte) round(value);
+      return (byte) round(value);
     } else if (parameterType.equals(Short.class)) {
-      return (Short) (short) round(value);
+      return (short) round(value);
     } else if (parameterType.equals(Integer.class)) {
-      return (Integer) (int) round(value);
+      return (int) round(value);
     } else if (parameterType.equals(Long.class)) {
-      return (Long) round(value);
+      return round(value);
     } else if (parameterType.equals(Float.class)) {
       return Float.valueOf(value);
     } else if (parameterType.equals(Double.class)) {

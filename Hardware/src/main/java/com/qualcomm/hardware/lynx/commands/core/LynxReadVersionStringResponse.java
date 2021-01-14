@@ -39,6 +39,7 @@ import com.qualcomm.hardware.lynx.commands.LynxDatagram;
 
 import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 
 /**
  * Created by bob on 2/6/2017.
@@ -74,7 +75,7 @@ public class LynxReadVersionStringResponse extends LynxDekaInterfaceResponse
             }
         else
             {
-            return new String(rgbText, Charset.forName("UTF-8"));
+            return new String(rgbText, StandardCharsets.UTF_8);
             }
         }
 

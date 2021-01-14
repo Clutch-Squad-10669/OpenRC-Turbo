@@ -44,5 +44,5 @@ public enum MotorControlAlgorithm
     /** @deprecated Switch to {@link #PIDF} instead*/
     @Deprecated
     LegacyPID,
-    PIDF;
+    PIDF
     }

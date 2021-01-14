@@ -77,11 +77,11 @@ public class EditSwapUsbDevices extends EditActivity
         this.targetConfiguration = (ControllerConfiguration) parameters.getConfiguration();
 
         String message = String.format(getString(R.string.swapPrompt), targetConfiguration.getName());
-        TextView caption = (TextView) findViewById(R.id.swapCaption);
+        TextView caption = findViewById(R.id.swapCaption);
         caption.setText(message);
 
         // there's nothing to edit here, so the 'Done' / 'Save' button isn't appropriate
-        Button doneButton = (Button) findViewById(R.id.doneButton);
+        Button doneButton = findViewById(R.id.doneButton);
         doneButton.setVisibility(View.GONE);
 
         populateList();
@@ -93,7 +93,7 @@ public class EditSwapUsbDevices extends EditActivity
 
     protected void populateList()
         {
-        ListView controllerListView = (ListView) findViewById(R.id.controllersList);
+        ListView controllerListView = findViewById(R.id.controllersList);
 
         DeviceInfoAdapter adapter = new DeviceInfoAdapter(this, android.R.layout.simple_list_item_2, getRobotConfigMap().getEligibleSwapTargets(targetConfiguration, scannedDevices, this));
         controllerListView.setAdapter(adapter);

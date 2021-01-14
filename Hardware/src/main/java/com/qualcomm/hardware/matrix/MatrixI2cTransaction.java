@@ -155,7 +155,7 @@ public class MatrixI2cTransaction {
         if (property == I2cTransactionProperty.PROPERTY_MOTOR_BATCH) {
             return "Matrix motor transaction: " + property + " motor " + motor + " write " + write + " speed " + speed + " target " + target + " mode " + mode;
         } else if (property == I2cTransactionProperty.PROPERTY_SERVO) {
-            return "Matrix servo transaction: " + property + " servo " + servo + " write " + write + " change rate " + speed + " target " + (int)target;
+            return "Matrix servo transaction: " + property + " servo " + servo + " write " + write + " change rate " + speed + " target " + target;
         } else if (property == I2cTransactionProperty.PROPERTY_SERVO_ENABLE) {
             return "Matrix servo transaction: " + property + " servo " + servo + " write " + write + " value " + value;
         } else {

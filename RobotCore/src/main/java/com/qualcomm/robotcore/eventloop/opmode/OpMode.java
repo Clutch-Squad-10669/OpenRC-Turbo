@@ -101,7 +101,7 @@ public abstract class OpMode {
    * This method will be called repeatedly when the INIT button is pressed.
    * This method is optional. By default this method takes no action.
    */
-  public void init_loop() {};
+  public void init_loop() {}
 
   /**
    * User defined start method.
@@ -111,7 +111,7 @@ public abstract class OpMode {
    * Example usage: Starting another thread.
    *
    */
-  public void start() {};
+  public void start() {}
 
   /**
    * User defined loop method
@@ -127,7 +127,7 @@ public abstract class OpMode {
    *
    * The stop method is optional. By default this method takes no action.
    */
-  public void stop() {};
+  public void stop() {}
 
   /**
    * Requests that this OpMode be shut down if it the currently active opMode, much as if the stop

@@ -343,7 +343,7 @@ public final class CameraCalibrationManager
             }
         }
 
-    @SuppressWarnings("SameParameterValue") protected int[] parseIntArray(int cInt, String values) throws NumberFormatException, IllegalArgumentException
+    @SuppressWarnings("SameParameterValue") protected int[] parseIntArray(int cInt, String values) throws IllegalArgumentException
         {
         if (values==null) return new int[cInt];
 
@@ -359,7 +359,7 @@ public final class CameraCalibrationManager
         return result;
         }
 
-    protected static float[] parseFloatArray(int cFloat, String values) throws NumberFormatException, IllegalArgumentException
+    protected static float[] parseFloatArray(int cFloat, String values) throws IllegalArgumentException
         {
         if (values==null) return new float[cFloat];
 

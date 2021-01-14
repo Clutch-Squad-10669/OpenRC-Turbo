@@ -120,10 +120,10 @@ public class FtcConfigurationActivity extends EditActivity implements RecvLoopRu
       EditParameters parameters = EditParameters.fromIntent(this, getIntent());
       deserialize(parameters);
 
-      Button scanButton = (Button) findViewById(R.id.scanButton);
+      Button scanButton = findViewById(R.id.scanButton);
       scanButton.setVisibility(View.VISIBLE);
 
-      Button doneButton = (Button) findViewById(R.id.doneButton);
+      Button doneButton = findViewById(R.id.doneButton);
       doneButton.setText(R.string.buttonNameSave);
 
       startExecutorService();
@@ -209,7 +209,7 @@ public class FtcConfigurationActivity extends EditActivity implements RecvLoopRu
     builder.setPositiveButton(getString(R.string.buttonNameOK), doNothingAndCloseListener);
     AlertDialog alert = builder.create();
     alert.show();
-    TextView textView = (TextView) alert.findViewById(android.R.id.message);  // text view doesn't exist until after .show() is called
+    TextView textView = alert.findViewById(android.R.id.message);  // text view doesn't exist until after .show() is called
     textView.setTextSize(14);
   }
 
@@ -219,7 +219,7 @@ public class FtcConfigurationActivity extends EditActivity implements RecvLoopRu
     builder.setPositiveButton(getString(R.string.buttonNameOK), doNothingAndCloseListener);
     AlertDialog alert = builder.create();
     alert.show();
-    TextView textView = (TextView) alert.findViewById(android.R.id.message);  // text view doesn't exist until after .show() is called
+    TextView textView = alert.findViewById(android.R.id.message);  // text view doesn't exist until after .show() is called
     textView.setTextSize(14);
   }
 
@@ -477,7 +477,7 @@ public class FtcConfigurationActivity extends EditActivity implements RecvLoopRu
   }
 
   private void clearDuplicateWarning() {
-    LinearLayout warning_layout = (LinearLayout) findViewById(R.id.feedbackAnchorDuplicateNames);
+    LinearLayout warning_layout = findViewById(R.id.feedbackAnchorDuplicateNames);
     warning_layout.removeAllViews();
     warning_layout.setVisibility(View.GONE);
   }
@@ -487,7 +487,7 @@ public class FtcConfigurationActivity extends EditActivity implements RecvLoopRu
    * That variable is either from scanned devices, or read in from an xml file.
    */
   private void populateList() {
-    ListView controllerListView = (ListView) findViewById(R.id.controllersList);
+    ListView controllerListView = findViewById(R.id.controllersList);
 
     // Before we launch, we want the scan to have completed
     try {

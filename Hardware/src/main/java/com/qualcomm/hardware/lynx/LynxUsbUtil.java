@@ -108,8 +108,8 @@ public class LynxUsbUtil
      * log all the time for fear of swamping the log */
     public static class Placeholder<T>
         {
-        private String tag;
-        private String message;
+        private final String tag;
+        private final String message;
         private boolean logged;
         public Placeholder(String tag, String format, Object... args)
             {

@@ -143,9 +143,9 @@ public class VuforiaSkyStone extends VuforiaBase {
         OpenGLMatrix
             .translation(HALF_FIELD, -QUAD_FIELD, MM_TARGET_HEIGHT)
             .multiplied(Orientation.getRotationMatrix(EXTRINSIC, XYZ, DEGREES, 90, 0, -90)));
-  };
+  }
 
-  public VuforiaSkyStone() {
+    public VuforiaSkyStone() {
     super(ASSET_NAME, TRACKABLE_NAMES, LOCATIONS_ON_FIELD);
   }
 }

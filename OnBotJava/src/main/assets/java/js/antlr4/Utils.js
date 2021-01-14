@@ -414,7 +414,7 @@ function titleCase(str) {
     return str.replace(/\w\S*/g, function (txt) {
         return txt.charAt(0).toUpperCase() + txt.substr(1);
     });
-};
+}
 
 function equalArrays(a, b)
 {
@@ -431,7 +431,7 @@ function equalArrays(a, b)
             return false;
     }
     return true;
-};
+}
 
 exports.Hash = Hash;
 exports.Set = Set;

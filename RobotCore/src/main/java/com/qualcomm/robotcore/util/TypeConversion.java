@@ -35,6 +35,7 @@ import androidx.annotation.Nullable;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 
 /**
  * Utility class for performing type conversions
@@ -42,7 +43,7 @@ import java.nio.charset.Charset;
 @SuppressWarnings("unused")
 public class TypeConversion {
 
-  private static final Charset UTF8_CHARSET = Charset.forName("UTF-8");
+  private static final Charset UTF8_CHARSET = StandardCharsets.UTF_8;
 
 
   /*
@@ -234,7 +235,7 @@ public class TypeConversion {
   }
 
   public static long doubleToFixedLong(double value, int fractionBits) {
-    return (long)Math.round(value * power2(fractionBits));
+    return Math.round(value * power2(fractionBits));
   }
 
   public static double doubleFromFixed(long value, int fractionBits) {

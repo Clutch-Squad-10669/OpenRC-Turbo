@@ -72,7 +72,7 @@ public class AutoConfigGLSurfaceView extends GLSurfaceView
     // Creates OpenGL contexts.
     private static class ContextFactory implements EGLContextFactory
         {
-        private static int EGL_CONTEXT_CLIENT_VERSION = 0x3098;
+        private static final int EGL_CONTEXT_CLIENT_VERSION = 0x3098;
 
         public EGLContext createContext(EGL10 egl, EGLDisplay display, EGLConfig eglConfig)
             {
@@ -117,7 +117,7 @@ public class AutoConfigGLSurfaceView extends GLSurfaceView
         protected int mAlphaSize;
         protected int mDepthSize;
         protected int mStencilSize;
-        private int[] mValue = new int[1];
+        private final int[] mValue = new int[1];
 
         //------------------------------------------------------------------------------------------
         // Construction

@@ -44,7 +44,7 @@ public enum VoltageUnit {
         }
     };
 
-    private double voltsPerUnit;
+    private final double voltsPerUnit;
 
     VoltageUnit(double voltsPerUnit) {
         this.voltsPerUnit = voltsPerUnit;

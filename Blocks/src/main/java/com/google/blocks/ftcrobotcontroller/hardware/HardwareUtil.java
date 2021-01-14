@@ -123,7 +123,7 @@ public class HardwareUtil {
   static {
     for (HardwareType hardwareType : HardwareType.values()) {
       for (String xmlTag : hardwareType.xmlTags) {
-        List<HardwareType> list = (List<HardwareType>) XML_TAG_TO_HARDWARE_TYPES.get(xmlTag);
+        List<HardwareType> list = XML_TAG_TO_HARDWARE_TYPES.get(xmlTag);
         if (list == null) {
           list = new ArrayList<HardwareType>();
           XML_TAG_TO_HARDWARE_TYPES.put(xmlTag, list);
@@ -143,7 +143,7 @@ public class HardwareUtil {
   // visible for testing
   static Iterable<HardwareType> getHardwareTypes(String xmlTag) {
     return XML_TAG_TO_HARDWARE_TYPES.containsKey(xmlTag)
-        ? Collections.<HardwareType>unmodifiableList(XML_TAG_TO_HARDWARE_TYPES.get(xmlTag))
+        ? Collections.unmodifiableList(XML_TAG_TO_HARDWARE_TYPES.get(xmlTag))
         : Collections.<HardwareType>emptyList();
   }
 
@@ -1283,10 +1283,10 @@ public class HardwareUtil {
           addLightSensorCategoryToToolbox(xmlToolbox, hardwareType, hardwareItems);
           break;
         case MR_I2C_COMPASS_SENSOR:
-          addMrI2cCompassSensorCategoryToToolbox(xmlToolbox, hardwareType, hardwareItems);;
+          addMrI2cCompassSensorCategoryToToolbox(xmlToolbox, hardwareType, hardwareItems);
           break;
         case MR_I2C_RANGE_SENSOR:
-          addMrI2cRangeSensorCategoryToToolbox(xmlToolbox, hardwareType, hardwareItems);;
+          addMrI2cRangeSensorCategoryToToolbox(xmlToolbox, hardwareType, hardwareItems);
           break;
         case OPTICAL_DISTANCE_SENSOR:
           addOpticalDistanceSensorCategoryToToolbox(xmlToolbox, hardwareType, hardwareItems);

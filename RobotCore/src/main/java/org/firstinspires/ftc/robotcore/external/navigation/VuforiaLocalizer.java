@@ -263,9 +263,9 @@ public interface VuforiaLocalizer extends CameraStreamSource
                 }
             return UNKNOWN;
             }
-        };
+        }
 
-    /**
+        /**
      * {@link Parameters} provides configuration information for instantiating the Vuforia localizer
      */
     class Parameters
@@ -333,9 +333,9 @@ public interface VuforiaLocalizer extends CameraStreamSource
          * @see #cameraMonitorViewIdParent
          * @see #cameraMonitorFeedback
          */
-        public enum CameraMonitorFeedback { NONE, AXES , TEAPOT, BUILDINGS };
+        public enum CameraMonitorFeedback { NONE, AXES , TEAPOT, BUILDINGS }
 
-        /**
+            /**
          * Indicates the style of camera monitoring feedback to use. Null indicates that
          * a default feedback style is to be used. {@link CameraMonitorFeedback#NONE None} indicates
          * that the camera monitoring is to be provided, but no feedback is to be drawn thereon.

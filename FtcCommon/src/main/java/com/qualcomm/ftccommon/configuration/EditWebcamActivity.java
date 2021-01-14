@@ -55,7 +55,7 @@ public class EditWebcamActivity extends EditUSBDeviceActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.webcam_device);
 
-        textCameraName = (EditText) findViewById(R.id.cameraName);
+        textCameraName = findViewById(R.id.cameraName);
 
         EditParameters parameters = EditParameters.fromIntent(this, getIntent());
         deserialize(parameters);
@@ -69,7 +69,7 @@ public class EditWebcamActivity extends EditUSBDeviceActivity
 
     @Override protected void refreshSerialNumber()
         {
-        TextView serialNumberView = (TextView) findViewById(R.id.serialNumber);
+        TextView serialNumberView = findViewById(R.id.serialNumber);
         serialNumberView.setText(formatSerialNumber(this, controllerConfiguration));
         }
 

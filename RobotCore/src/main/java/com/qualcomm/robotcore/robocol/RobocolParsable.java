@@ -58,7 +58,7 @@ public interface RobocolParsable {
   /**
    * Message Type
    */
-  public enum MsgType {
+  enum MsgType {
     /*
      * NOTE: when adding new message types, do not change existing message
      * type values or you will break backwards capability.
@@ -89,7 +89,7 @@ public interface RobocolParsable {
       return t;
     }
 
-    private MsgType(int type) {
+    MsgType(int type) {
       this.type = type;
     }
 

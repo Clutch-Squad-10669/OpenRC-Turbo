@@ -340,9 +340,9 @@ public class UsbResiliantWebcam extends DelegatingCamera implements RefCountedCa
                     }
                 }
             }
-        };
+        }
 
-    /**
+        /**
      * Called by {@link CameraManagerImpl}
      */
     public void openAssumingPermission(long reopenDuration, TimeUnit reopenTimeUnit)

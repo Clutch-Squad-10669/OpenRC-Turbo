@@ -467,7 +467,7 @@ public abstract class EditActivity extends ThemedActivity
         }
     protected void handleSpinner(View view, int spinnerId, DeviceConfiguration deviceConfiguration, boolean forceFind)
         {
-        Spinner choiceSpinner = (Spinner)view.findViewById(spinnerId);
+        Spinner choiceSpinner = view.findViewById(spinnerId);
         if (forceFind || deviceConfiguration.isEnabled())
             {
             int spinnerPosition = findPosition(choiceSpinner, deviceConfiguration.getSpinnerChoiceType(), getDefaultEnabledSelection());

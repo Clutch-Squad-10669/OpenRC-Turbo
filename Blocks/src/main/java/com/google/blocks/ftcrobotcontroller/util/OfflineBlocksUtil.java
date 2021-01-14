@@ -209,8 +209,8 @@ public class OfflineBlocksUtil {
     Color.colorToHSV(colors.textBright, hsvTextBright);
     return cssStringBuilder.toString()
         .replace("@import \"/css/core.less\";", "")
-        .replace("hue(@textBright)", String.format("%d", (int) Math.round(hsvTextBright[0])))
-        .replace("saturation(@textBright)", String.format("%d%%", (int) Math.round(100 * hsvTextBright[1])))
+        .replace("hue(@textBright)", String.format("%d", Math.round(hsvTextBright[0])))
+        .replace("saturation(@textBright)", String.format("%d%%", Math.round(100 * hsvTextBright[1])))
         .replace("darken(@backgroundMedium, 5%)", String.format("#%06x", (darken(colors.backgroundMedium, 0.05f) & 0xFFFFFF)))
         .replace("@textError", String.format("#%06x", (colors.textError & 0xFFFFFF)))
         .replace("@textWarning", String.format("#%06x", (colors.textWarning & 0xFFFFFF)))
@@ -288,9 +288,9 @@ public class OfflineBlocksUtil {
       b = hue2rgb(p, q, hsl[0] - 1/3f);
     }
 
-    int r255 = (int) Math.round(r * 255f);
-    int g255 = (int) Math.round(g * 255f);
-    int b255 = (int) Math.round(b * 255f);
+    int r255 = Math.round(r * 255f);
+    int g255 = Math.round(g * 255f);
+    int b255 = Math.round(b * 255f);
     return Color.rgb(r255, g255, b255);
   }
 

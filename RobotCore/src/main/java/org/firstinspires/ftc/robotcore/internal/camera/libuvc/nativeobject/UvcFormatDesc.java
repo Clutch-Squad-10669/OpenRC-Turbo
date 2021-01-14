@@ -40,6 +40,7 @@ import org.firstinspires.ftc.robotcore.internal.camera.ImageFormatMapper;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -55,7 +56,7 @@ public class UvcFormatDesc extends NativeObject<UvcStreamingInterface>
     // State
     //----------------------------------------------------------------------------------------------
 
-    protected static Charset charset = Charset.forName("UTF8");
+    protected static Charset charset = StandardCharsets.UTF_8;
 
     public enum Subtype
         {
@@ -83,9 +84,9 @@ public class UvcFormatDesc extends NativeObject<UvcStreamingInterface>
                 }
             return UNDEFINED;
             }
-        };
+        }
 
-    //----------------------------------------------------------------------------------------------
+        //----------------------------------------------------------------------------------------------
     // Construction
     //----------------------------------------------------------------------------------------------
 

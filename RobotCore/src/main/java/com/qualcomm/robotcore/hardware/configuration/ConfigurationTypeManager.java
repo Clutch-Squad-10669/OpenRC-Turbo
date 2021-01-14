@@ -104,20 +104,20 @@ public final class ConfigurationTypeManager implements ClassFilter
         return theInstance;
         }
 
-    private static ConfigurationTypeManager theInstance = new ConfigurationTypeManager();
+    private static final ConfigurationTypeManager theInstance = new ConfigurationTypeManager();
 
-    private Gson gson = newGson();
-    private Map<String, UserConfigurationType> mapTagToUserType = new HashMap<>();
-    private Set<String>  existingXmlTags = new HashSet<>();
-    private Map<ConfigurationType.DeviceFlavor, Set<String>> existingTypeDisplayNamesMap = new HashMap<>();
+    private final Gson gson = newGson();
+    private final Map<String, UserConfigurationType> mapTagToUserType = new HashMap<>();
+    private final Set<String>  existingXmlTags = new HashSet<>();
+    private final Map<ConfigurationType.DeviceFlavor, Set<String>> existingTypeDisplayNamesMap = new HashMap<>();
 
-    private static String unspecifiedMotorTypeXmlTag = getXmlTag(UnspecifiedMotor.class);
-    private static String standardServoTypeXmlTag = getXmlTag(Servo.class);
+    private static final String unspecifiedMotorTypeXmlTag = getXmlTag(UnspecifiedMotor.class);
+    private static final String standardServoTypeXmlTag = getXmlTag(Servo.class);
 
     private static final Class[] typeAnnotationsArray = { ServoType.class, AnalogSensorType.class, DigitalIoDeviceType.class, I2cDeviceType.class, com.qualcomm.robotcore.hardware.configuration.annotations.MotorType.class};
     private static final List<Class> typeAnnotationsList = Arrays.asList(typeAnnotationsArray);
 
-    private Comparator<? super ConfigurationType> simpleConfigTypeComparator = new Comparator<ConfigurationType>()
+    private final Comparator<? super ConfigurationType> simpleConfigTypeComparator = new Comparator<ConfigurationType>()
         {
         @Override
         public int compare(ConfigurationType lhs, ConfigurationType rhs)

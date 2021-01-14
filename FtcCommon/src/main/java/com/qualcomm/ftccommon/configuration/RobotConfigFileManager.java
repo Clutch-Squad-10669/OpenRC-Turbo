@@ -78,15 +78,15 @@ public class RobotConfigFileManager {
     public static final String FILE_EXT = ".xml";
     public        final String noConfig;
 
-    private Context context;
-    private Activity activity;
-    private Resources resources;
-    private WriteXMLFileHandler writer;
-    private SharedPreferences preferences;
+    private final Context context;
+    private final Activity activity;
+    private final Resources resources;
+    private final WriteXMLFileHandler writer;
+    private final SharedPreferences preferences;
     private final @IdRes int idActiveConfigName = R.id.idActiveConfigName;
     private final @IdRes int idActiveConfigHeader = R.id.idActiveConfigHeader;
-    private NetworkConnectionHandler networkConnectionHandler = NetworkConnectionHandler.getInstance();
-    private AppUtil appUtil = AppUtil.getInstance();
+    private final NetworkConnectionHandler networkConnectionHandler = NetworkConnectionHandler.getInstance();
+    private final AppUtil appUtil = AppUtil.getInstance();
 
     /*
      * Initialized once very early in execution, these supply the resource ids of configurations and
@@ -258,7 +258,7 @@ public class RobotConfigFileManager {
                         fileName = String.format(context.getString(R.string.configDirtyLabel), fileName);
                     }
 
-                    TextView activeFile = (TextView) activity.findViewById(idActiveConfigName);
+                    TextView activeFile = activity.findViewById(idActiveConfigName);
                     if (activeFile != null) {
                         activeFile.setText(fileName);
                     } else {
@@ -489,7 +489,7 @@ public class RobotConfigFileManager {
      * Returns a {@link Source} to the XSLT transformation that will transform robot config
      * templates/configurations into human-readable descriptions.
      */
-    @NonNull protected Source getRobotConfigDescriptionTransform() throws XmlPullParserException, IOException, TransformerConfigurationException,TransformerException
+    @NonNull protected Source getRobotConfigDescriptionTransform() throws XmlPullParserException, IOException, TransformerException
     {
         // Load RobotConfigTaxonomy as a DOM
         Reader xmlConfigTaxonomyReader = new InputStreamReader(context.getAssets().open(ROBOT_CONFIG_TAXONOMY_XML));

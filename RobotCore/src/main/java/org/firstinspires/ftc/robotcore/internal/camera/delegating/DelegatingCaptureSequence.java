@@ -81,9 +81,9 @@ public class DelegatingCaptureSequence extends RefCounted
     protected CameraCaptureSession      cameraCaptureSession = null;
     protected CameraCaptureSequenceId   cameraCaptureSequenceId = null;
 
-    protected enum StreamingState { Started, Paused, Stopped };
+    protected enum StreamingState { Started, Paused, Stopped }
 
-    //----------------------------------------------------------------------------------------------
+        //----------------------------------------------------------------------------------------------
     // Construction
     //----------------------------------------------------------------------------------------------
 

@@ -82,9 +82,9 @@ public class ClassManager {
     private final boolean DEBUG = false;
 
     private List<String> packagesAndClassesToIgnore;
-    private List<ClassFilter> filters;
-    private Context context;
-    private DexFile dexFile;
+    private final List<ClassFilter> filters;
+    private final Context context;
+    private final DexFile dexFile;
     private OnBotJavaHelper onBotJavaHelper = null;
     private ClassLoader classLoader = null;
 

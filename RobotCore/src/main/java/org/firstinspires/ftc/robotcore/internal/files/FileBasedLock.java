@@ -101,9 +101,9 @@ public class FileBasedLock
     // Operations
     //----------------------------------------------------------------------------------------------
 
-    protected class NeverThrown extends Exception {};
+    protected class NeverThrown extends Exception {}
 
-    public void lockWhile(final Runnable runnable) throws InterruptedException
+        public void lockWhile(final Runnable runnable) throws InterruptedException
         {
         lockWhile(new Supplier<Void>()
             {

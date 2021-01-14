@@ -46,12 +46,12 @@ public class Watchdog {
 
     private final static String TAG = "Watchdog";
 
-    private long timeout;
-    private int period;
-    private TimeUnit unit;
-    private Runnable bark;
-    private Runnable growl;
-    private int growlTime;
+    private final long timeout;
+    private final int period;
+    private final TimeUnit unit;
+    private final Runnable bark;
+    private final Runnable growl;
+    private final int growlTime;
     private Deadline deadline;
     private ScheduledExecutorService executorService;
     private ScheduledFuture<?> futureTask;

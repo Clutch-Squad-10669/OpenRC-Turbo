@@ -2498,7 +2498,7 @@ define("ace/keyboard/textinput_ios",["require","exports","module","ace/lib/event
                 timer = null;
                 var str = text.value.replace(/\x01/g, "");
                 if (inComposition)
-                    return;
+
                 else if (str == c.lastValue)
                     resetValue();
                 else if (!c.lastValue && str) {
@@ -11046,7 +11046,7 @@ define("ace/edit_session",["require","exports","module","ace/lib/oop","ace/lib/l
                         else if (token == TAB)
                             indentation += tabSize;
                         else if (token == TAB_SPACE)
-                            continue;
+
                         else
                             break;
                     }

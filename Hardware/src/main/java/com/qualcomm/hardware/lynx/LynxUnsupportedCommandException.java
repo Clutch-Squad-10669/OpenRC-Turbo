@@ -40,9 +40,9 @@ import com.qualcomm.hardware.lynx.commands.LynxMessage;
 @SuppressWarnings("WeakerAccess")
 public class LynxUnsupportedCommandException extends Exception
     {
-    private LynxModule                   lynxModule;
-    private int                          commandNumber;
-    private Class<? extends LynxMessage> clazz;
+    private final LynxModule                   lynxModule;
+    private final int                          commandNumber;
+    private final Class<? extends LynxMessage> clazz;
 
     public LynxUnsupportedCommandException(LynxModule module, LynxMessage lynxMessage)
         {

@@ -68,12 +68,12 @@ public class RobotControllerAccessPointAssistant extends AccessPointAssistant {
 
     private static RobotControllerAccessPointAssistant robotControllerAccessPointAssistant = null;
 
-    private IntentFilter intentFilter;
+    private final IntentFilter intentFilter;
     private BroadcastReceiver receiver;
     private NetworkConnection.ConnectStatus connectStatus;
-    private DeviceNameManager nameManager = DeviceNameManagerFactory.getInstance();
-    private PasswordManager passwordManager = PasswordManagerFactory.getInstance();
-    private ApChannelManager apChannelManager = ApChannelManagerFactory.getInstance();
+    private final DeviceNameManager nameManager = DeviceNameManagerFactory.getInstance();
+    private final PasswordManager passwordManager = PasswordManagerFactory.getInstance();
+    private final ApChannelManager apChannelManager = ApChannelManagerFactory.getInstance();
 
     private final Object enableDisableLock = new Object();
 

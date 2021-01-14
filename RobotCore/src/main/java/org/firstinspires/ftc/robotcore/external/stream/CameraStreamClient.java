@@ -68,7 +68,7 @@ public class CameraStreamClient {
 
     private boolean available;
 
-    private SortedMap<Integer, PartialFrame> partialFrames = new TreeMap<>();
+    private final SortedMap<Integer, PartialFrame> partialFrames = new TreeMap<>();
 
     @Nullable private Listener listener;
 

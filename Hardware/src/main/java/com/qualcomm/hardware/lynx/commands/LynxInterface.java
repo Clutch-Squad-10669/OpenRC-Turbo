@@ -58,11 +58,11 @@ public class LynxInterface
     // State
     //----------------------------------------------------------------------------------------------
 
-    private String                                                  interfaceName;
+    private final String                                                  interfaceName;
     private Integer                                                 baseCommandNumber;
-    private Class<? extends LynxInterfaceCommand>[]                 commands;
-    private Map<Class<? extends LynxInterfaceCommand>, Integer>     commandIndices;
-    private Map<Class<? extends LynxInterfaceResponse>, Integer>    responseIndices;
+    private final Class<? extends LynxInterfaceCommand>[]                 commands;
+    private final Map<Class<? extends LynxInterfaceCommand>, Integer>     commandIndices;
+    private final Map<Class<? extends LynxInterfaceResponse>, Integer>    responseIndices;
     private boolean                                                 wasNacked;
     //----------------------------------------------------------------------------------------------
     // Construction

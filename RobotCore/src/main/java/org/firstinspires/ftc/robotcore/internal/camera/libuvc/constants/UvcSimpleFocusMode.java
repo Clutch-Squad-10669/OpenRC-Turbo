@@ -41,5 +41,5 @@ public enum UvcSimpleFocusMode
         FULL_RANGE,   // full range
         MACRO,        // Less than 0.3 meters.
         PEOPLE,       // 0.3m to 3m
-        SCENE;        //  3m to infinity
+        SCENE        //  3m to infinity
     }

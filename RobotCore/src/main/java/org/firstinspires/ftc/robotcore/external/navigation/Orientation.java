@@ -474,9 +474,9 @@ public class Orientation
      * {@link AngleSet} is used to distinguish between the two sets of angles that will produce
      * a given rotation in a given axes reference and a given axes order
      */
-    public enum AngleSet { THEONE, THEOTHER };
+    public enum AngleSet { THEONE, THEOTHER }
 
-    /**
+        /**
      * Given a rotation matrix, and an {@link AxesReference} and {@link AxesOrder}, returns an orientation
      * that would produce that rotation matrix.
      *

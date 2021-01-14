@@ -81,7 +81,7 @@ public class LynxNack extends LynxMessage
             ABANDONED_WAITING_FOR_ACK(257),
             UNRECOGNIZED_REASON_CODE(258);
 
-        private int iVal;
+        private final int iVal;
         StandardReasonCode(int i) { this.iVal = i; }
         @Override public int getValue() { return this.iVal; }
 

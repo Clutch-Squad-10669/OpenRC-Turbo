@@ -119,7 +119,7 @@ public class ColorListPreference extends ListPreference
         final ArrayList<Pair<CharSequence,Integer>> entryAndColors = new ArrayList<>();
         for (int i = 0; i < getEntries().length; i++)
             {
-            entryAndColors.add(new Pair<CharSequence, Integer>(getEntries()[i], (Integer)colors[i]));
+            entryAndColors.add(new Pair<CharSequence, Integer>(getEntries()[i], colors[i]));
             }
 
         clickedDialogEntryIndex = getValueIndex();

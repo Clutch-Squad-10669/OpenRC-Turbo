@@ -63,13 +63,14 @@ public class RobotConfigFile {
         NONE,
         LOCAL_STORAGE,
         RESOURCE,
-    };
+    }
 
     private final static String LOGGER_TAG = "RobotConfigFile";
 
-    private String name;
-    private @XmlRes int resourceId;
-    private FileLocation location;
+    private final String name;
+    private @XmlRes
+    final int resourceId;
+    private final FileLocation location;
     private boolean isDirty;
 
     public static RobotConfigFile noConfig(RobotConfigFileManager configFileManager)

@@ -141,7 +141,7 @@ public final class FtcWebSocketImpl implements FtcWebSocket {
     }
 
     public static abstract class RawWebSocket {
-        private FtcWebSocketImpl ftcWebSocket;
+        private final FtcWebSocketImpl ftcWebSocket;
 
         public RawWebSocket(int port, InetAddress remoteIpAddress, String remoteHostname, WebSocketManager webSocketManager) {
             ftcWebSocket = new FtcWebSocketImpl(port, remoteIpAddress, remoteHostname, webSocketManager, this);

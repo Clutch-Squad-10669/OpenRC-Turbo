@@ -78,7 +78,7 @@ public class ViewLogsActivity extends ThemedActivity {
 
     errorColor = getResources().getColor(R.color.text_warning);
 
-    webViewForLogcat = (WebView) findViewById(R.id.webView);
+    webViewForLogcat = findViewById(R.id.webView);
     webViewForLogcat.getSettings().setBuiltInZoomControls(true); //enable pinch to zoom
     webViewForLogcat.getSettings().setDisplayZoomControls(false); //don't show cupcake-era zoom buttons
     webViewForLogcat.setBackgroundColor(getResources().getColor(R.color.logviewer_bgcolor));

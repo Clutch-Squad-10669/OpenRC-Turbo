@@ -262,10 +262,10 @@ public interface I2cDeviceSynch extends I2cDeviceSynchSimple, Engagable
          * from the I2C device.
          */
         ONLY_ONCE
-        };
+        }
 
 
-    /**
+        /**
      * RegWindow is a utility class for managing the window of I2C register bytes that
      * are read from our I2C device on every hardware cycle
      */

@@ -61,7 +61,7 @@ public class RobotLog {
    */
   protected static class LoggingThread extends Thread {
 
-    private RunShellCommand shell;
+    private final RunShellCommand shell;
 
     LoggingThread(String name) {
       super(name);
@@ -97,7 +97,7 @@ public class RobotLog {
   private static String       globalErrorMessage = "";
   private static final Object globalWarningLock = new Object();
   private static String       globalWarningMessage = "";
-  private static WeakHashMap<GlobalWarningSource,Integer> globalWarningSources = new WeakHashMap<GlobalWarningSource,Integer>();
+  private static final WeakHashMap<GlobalWarningSource,Integer> globalWarningSources = new WeakHashMap<GlobalWarningSource,Integer>();
   private static double       msTimeOffset = 0.0;
   private static boolean      globalErrorMsgSticky = false;
   private static boolean      globalWarningMsgSticky = false;
@@ -110,12 +110,12 @@ public class RobotLog {
   /*
    * Prefixing with exec causes the call to destory to kill logcat instead of it's spawning shell.
    */
-  private static String logcatCommandRaw     = "logcat";
-  private static String logcatCommand        = "exec " + logcatCommandRaw;
-  private static int    kbLogcatQuantum      = 4 * 1024;
-  private static int    logcatRotatedLogsMax = 4;
-  private static String logcatFormat         = "threadtime";
-  private static String logcatFilter         = "UsbRequestJNI:S UsbRequest:S art:W ThreadPool:W System:W ExtendedExtractor:W OMXClient:W MediaPlayer:W dalvikvm:W  *:V";
+  private static final String logcatCommandRaw     = "logcat";
+  private static final String logcatCommand        = "exec " + logcatCommandRaw;
+  private static final int    kbLogcatQuantum      = 4 * 1024;
+  private static final int    logcatRotatedLogsMax = 4;
+  private static final String logcatFormat         = "threadtime";
+  private static final String logcatFilter         = "UsbRequestJNI:S UsbRequest:S art:W ThreadPool:W System:W ExtendedExtractor:W OMXClient:W MediaPlayer:W dalvikvm:W  *:V";
 
   private static Calendar matchStartTime     = null;
 

@@ -78,7 +78,7 @@ public class HiTechnicNxtCompassSensor extends I2cControllerPortDeviceImpl imple
   private boolean     switchingModes = false;
 
   private double      direction;
-  private boolean     calibrationFailed = false;
+  private final boolean     calibrationFailed = false;
 
   //------------------------------------------------------------------------------------------------
   // Construction
@@ -124,7 +124,7 @@ public class HiTechnicNxtCompassSensor extends I2cControllerPortDeviceImpl imple
       readBufferLock.unlock();
     }
 
-    return (double)TypeConversion.byteArrayToShort(heading, ByteOrder.LITTLE_ENDIAN);
+    return TypeConversion.byteArrayToShort(heading, ByteOrder.LITTLE_ENDIAN);
   }
 
   @Override

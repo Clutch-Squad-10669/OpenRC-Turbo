@@ -54,11 +54,11 @@ public class ProgrammingWebHandlers implements ProgrammingMode {
 
   public static final String TAG = ProgrammingWebHandlers.class.getSimpleName();
   @SuppressWarnings("FieldCanBeLocal")
-  private static String URI_NAV_BLOCKS_OLD = "/FtcProjects.html";
+  private static final String URI_NAV_BLOCKS_OLD = "/FtcProjects.html";
   @SuppressWarnings("FieldCanBeLocal")
-  private static String URI_NAV_BLOCKS = "/FtcBlocksProjects.html";
+  private static final String URI_NAV_BLOCKS = "/FtcBlocksProjects.html";
   @SuppressWarnings("FieldCanBeLocal")
-  private static String URI_NAV_ONBOTJAVA = "/java/editor.html";
+  private static final String URI_NAV_ONBOTJAVA = "/java/editor.html";
 
   private static final String URI_SERVER = "/server";
   private static final String URI_HARDWARE = "/hardware";

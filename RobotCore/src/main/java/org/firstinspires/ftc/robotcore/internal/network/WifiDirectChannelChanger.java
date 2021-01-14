@@ -52,9 +52,9 @@ public class WifiDirectChannelChanger
     {
     public static final String TAG = "WifiDirectChannelChanger";
 
-    private Context             context = AppUtil.getDefContext();
-    private PreferencesHelper   preferencesHelper = new PreferencesHelper(TAG, context);
-    private WifiDirectAgent     wifiDirectAgent = WifiDirectAgent.getInstance();
+    private final Context             context = AppUtil.getDefContext();
+    private final PreferencesHelper   preferencesHelper = new PreferencesHelper(TAG, context);
+    private final WifiDirectAgent     wifiDirectAgent = WifiDirectAgent.getInstance();
     private int                 channel = 0;
     private int                 listenChannel = 0;
     private volatile boolean    isChangingChannels = false;

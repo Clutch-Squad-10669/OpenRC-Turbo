@@ -79,7 +79,7 @@ public class FtcLoadFileActivity extends EditActivity implements RecvLoopRunnabl
   @Override protected FrameLayout getBackBar() { return findViewById(R.id.backbar); }
 
   private List<RobotConfigFile> fileList = new CopyOnWriteArrayList<RobotConfigFile>();
-  private NetworkConnectionHandler networkConnectionHandler = NetworkConnectionHandler.getInstance();
+  private final NetworkConnectionHandler networkConnectionHandler = NetworkConnectionHandler.getInstance();
 
   //------------------------------------------------------------------------------------------------
   // Life Cycle
@@ -125,7 +125,7 @@ public class FtcLoadFileActivity extends EditActivity implements RecvLoopRunnabl
 
   // RC has informed DS of the list of configuration files. Take that as gospel and update.
   protected CallbackResult handleCommandRequestConfigFilesResp(String extra) throws RobotCoreException {
-    fileList = robotConfigFileManager.deserializeXMLConfigList(extra);
+    fileList = RobotConfigFileManager.deserializeXMLConfigList(extra);
     warnIfNoFiles();
     populate();
     return CallbackResult.HANDLED;
@@ -153,7 +153,7 @@ public class FtcLoadFileActivity extends EditActivity implements RecvLoopRunnabl
   //------------------------------------------------------------------------------------------------
 
   private void buildInfoButtons() {
-    Button saveConfigButton = (Button) findViewById(R.id.files_holder).findViewById(R.id.info_btn);
+    Button saveConfigButton = findViewById(R.id.files_holder).findViewById(R.id.info_btn);
     saveConfigButton.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
@@ -161,12 +161,12 @@ public class FtcLoadFileActivity extends EditActivity implements RecvLoopRunnabl
         builder.setPositiveButton(getString(R.string.buttonNameOK), doNothingAndCloseListener);
         AlertDialog alert = builder.create();
         alert.show();
-        TextView textView = (TextView) alert.findViewById(android.R.id.message);
+        TextView textView = alert.findViewById(android.R.id.message);
         textView.setTextSize(14);
       }
     });
 
-    Button configFromTemplateButton = (Button) findViewById(R.id.configureFromTemplateArea).findViewById(R.id.info_btn);
+    Button configFromTemplateButton = findViewById(R.id.configureFromTemplateArea).findViewById(R.id.info_btn);
     configFromTemplateButton.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
@@ -174,7 +174,7 @@ public class FtcLoadFileActivity extends EditActivity implements RecvLoopRunnabl
         builder.setPositiveButton(getString(R.string.buttonNameOK), doNothingAndCloseListener);
         AlertDialog alert = builder.create();
         alert.show();
-        TextView textView = (TextView) alert.findViewById(android.R.id.message);
+        TextView textView = alert.findViewById(android.R.id.message);
         textView.setTextSize(14);
       }
     });
@@ -200,7 +200,7 @@ public class FtcLoadFileActivity extends EditActivity implements RecvLoopRunnabl
       runOnUiThread(new Runnable() {
         @Override
         public void run() {
-          ViewGroup empty_filelist = (ViewGroup) findViewById(R.id.empty_filelist);
+          ViewGroup empty_filelist = findViewById(R.id.empty_filelist);
           empty_filelist.removeAllViews();
           empty_filelist.setVisibility(View.GONE);
         }
@@ -215,7 +215,7 @@ public class FtcLoadFileActivity extends EditActivity implements RecvLoopRunnabl
         View readOnlyExplanation = findViewById(R.id.readOnlyExplanation);
         readOnlyExplanation.setVisibility(View.GONE);
 
-        ViewGroup inclusionViewGroup = (ViewGroup) findViewById(R.id.inclusionlayout);
+        ViewGroup inclusionViewGroup = findViewById(R.id.inclusionlayout);
         inclusionViewGroup.removeAllViews();
 
         final Collator coll = Collator.getInstance();
@@ -232,13 +232,13 @@ public class FtcLoadFileActivity extends EditActivity implements RecvLoopRunnabl
 
           // Resource-based (as opposed to file based) configurations can't be deleted
           if (file.isReadOnly()) {
-            Button deleteButton = (Button) child.findViewById(R.id.file_delete_button);
+            Button deleteButton = child.findViewById(R.id.file_delete_button);
             deleteButton.setEnabled(false);
             deleteButton.setClickable(false);
             readOnlyExplanation.setVisibility(View.VISIBLE);
           }
 
-          TextView name = (TextView) child.findViewById(R.id.filename_editText);
+          TextView name = child.findViewById(R.id.filename_editText);
           name.setText(file.getName());
           name.setTag(file);
 
@@ -353,7 +353,7 @@ public class FtcLoadFileActivity extends EditActivity implements RecvLoopRunnabl
   private RobotConfigFile getFile(View v) {
     LinearLayout horizontalButtons = (LinearLayout) v.getParent();
     LinearLayout linearLayout = (LinearLayout) horizontalButtons.getParent();
-    TextView name = (TextView) linearLayout.findViewById(R.id.filename_editText);
+    TextView name = linearLayout.findViewById(R.id.filename_editText);
     return (RobotConfigFile) name.getTag();
   }
 

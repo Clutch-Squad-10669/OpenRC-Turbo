@@ -52,8 +52,8 @@ import org.firstinspires.ftc.robotcore.internal.collections.SimpleGson;
 public final class FtcWebSocketMessage {
     private static final String TAG = "FtcWebSocketMessage";
 
-    @NonNull private String namespace;
-    @NonNull private String type;
+    @NonNull private final String namespace;
+    @NonNull private final String type;
     @NonNull private String payload = "";
 
     //----------------------------------------------------------------------------------------------

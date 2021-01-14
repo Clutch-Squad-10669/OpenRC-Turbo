@@ -57,7 +57,7 @@ import java.util.zip.CRC32;
 @SuppressWarnings("WeakerAccess")
 public class ControlHubDeviceNameManager implements DeviceNameManager {
 
-    protected enum DeviceNameTracking { UNINITIALIZED, WIFIAP };
+    protected enum DeviceNameTracking { UNINITIALIZED, WIFIAP }
 
     private static final ControlHubDeviceNameManager theInstance = new ControlHubDeviceNameManager();
     private static final String TAG = NetworkDiscoveryManager.TAG + "_ControlHubNameManager";
@@ -66,11 +66,11 @@ public class ControlHubDeviceNameManager implements DeviceNameManager {
 
     private String deviceName;
     private String defaultMadeUpDeviceName;
-    private Context context;
-    private SharedPreferences sharedPreferences;
-    private PreferencesHelper preferencesHelper;
-    private CallbackRegistrar<DeviceNameListener> callbacks = new CallbackRegistrar<DeviceNameListener>();
-    private SharedPreferencesListener sharedPreferencesListener = new SharedPreferencesListener();
+    private final Context context;
+    private final SharedPreferences sharedPreferences;
+    private final PreferencesHelper preferencesHelper;
+    private final CallbackRegistrar<DeviceNameListener> callbacks = new CallbackRegistrar<DeviceNameListener>();
+    private final SharedPreferencesListener sharedPreferencesListener = new SharedPreferencesListener();
 
     public static ControlHubDeviceNameManager getControlHubDeviceNameManager()
     {

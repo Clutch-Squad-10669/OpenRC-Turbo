@@ -37,5 +37,5 @@ package org.firstinspires.ftc.robotcore.internal.ui;
  */
 public enum UILocation
     {
-        ONLY_LOCAL, BOTH;
+        ONLY_LOCAL, BOTH
     }

@@ -81,7 +81,7 @@ public class CoreRobotWebServer implements WebServer {
     private String networkName;
     private InetAddress connectionOwnerAddress;
     private boolean serverIsAlive;
-    private int port;
+    private final int port;
 
     public CoreRobotWebServer(NetworkType networkType)
     {

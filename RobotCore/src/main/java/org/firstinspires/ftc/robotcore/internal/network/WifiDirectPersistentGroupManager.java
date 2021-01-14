@@ -257,7 +257,7 @@ public class WifiDirectPersistentGroupManager extends WifiStartStoppable
                         @Override public void onPersistentGroupInfoAvailable(Collection<WifiP2pGroup> groups)
                             {
                             result = groups;
-                            releaseCompletion(true);;
+                            releaseCompletion(true);
                             }
                         });
                     waitForCompletion();

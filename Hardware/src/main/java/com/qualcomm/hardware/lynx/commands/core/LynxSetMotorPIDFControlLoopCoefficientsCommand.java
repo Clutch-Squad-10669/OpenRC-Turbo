@@ -62,7 +62,7 @@ public class LynxSetMotorPIDFControlLoopCoefficientsCommand extends LynxDekaInte
         {
         First(0), LegacyPID(0), PIDF(1), Max(2), NotSet(0xff);
 
-        private byte value;
+        private final byte value;
 
         public byte getValue() { return value; }
 
@@ -140,7 +140,7 @@ public class LynxSetMotorPIDFControlLoopCoefficientsCommand extends LynxDekaInte
         this.i = i;
         this.d = d;
         this.f = f;
-        this.motorControlAlgorithm = (byte)motorControlAlgorithm.getValue();
+        this.motorControlAlgorithm = motorControlAlgorithm.getValue();
         }
 
     //----------------------------------------------------------------------------------------------

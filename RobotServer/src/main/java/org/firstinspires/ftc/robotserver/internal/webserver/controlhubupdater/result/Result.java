@@ -47,8 +47,8 @@ import static org.firstinspires.ftc.robotserver.internal.webserver.controlhubupd
  */
 public final class Result {
     @NonNull private final ResultType resultType;
-    @Nullable private String detailMessage;
-    @Nullable private Throwable cause;
+    @Nullable private final String detailMessage;
+    @Nullable private final Throwable cause;
 
     private Result(@NonNull ResultType resultType, @Nullable String detailMessage, @Nullable Throwable cause) {
         this.resultType = resultType;

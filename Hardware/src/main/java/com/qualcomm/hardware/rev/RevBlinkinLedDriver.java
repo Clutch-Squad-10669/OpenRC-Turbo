@@ -172,7 +172,7 @@ public class RevBlinkinLedDriver implements HardwareDevice {
         DARK_GRAY,
         BLACK;
 
-        private static BlinkinPattern[] elements = values();
+        private static final BlinkinPattern[] elements = values();
 
         public static BlinkinPattern fromNumber(int number)
         {
@@ -188,7 +188,7 @@ public class RevBlinkinLedDriver implements HardwareDevice {
         {
             return elements[(this.ordinal() - 1) < 0 ? elements.length - 1 : this.ordinal() - 1];
         }
-    };
+    }
 
     protected final static String TAG = "RevBlinkinLedDriver";
 

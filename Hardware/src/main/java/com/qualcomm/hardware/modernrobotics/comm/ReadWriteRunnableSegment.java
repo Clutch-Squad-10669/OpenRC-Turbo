@@ -41,10 +41,10 @@ import java.util.concurrent.locks.ReentrantLock;
 @SuppressLint("DefaultLocale")
 public class ReadWriteRunnableSegment {
 
-  private int key;
+  private final int key;
   private int address;
   private boolean retryOnReadFailure;
-  private TimeWindow timeWindow;
+  private final TimeWindow timeWindow;
 
   final Lock lockRead;
   final private byte[] bufferRead;

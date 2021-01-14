@@ -83,12 +83,12 @@ public class TFObjectDetectorImpl implements TFObjectDetector {
   private final Zoom zoom = new Zoom(1.0, 16.0/9.0);
 
   // Parameters passed in through the constructor.
-  private TfodParameters params;
-  private VuforiaLocalizer vuforiaLocalizer;
+  private final TfodParameters params;
+  private final VuforiaLocalizer vuforiaLocalizer;
 
-  private Rate rate;
+  private final Rate rate;
   private final int rotation;
-  private FrameGenerator frameGenerator;
+  private final FrameGenerator frameGenerator;
 
   private ViewGroup imageViewParent;
   private ImageView imageView;
@@ -209,7 +209,7 @@ public class TFObjectDetectorImpl implements TFObjectDetector {
     if (parameters.tfodMonitorViewParent != null) {
       imageViewParent = parameters.tfodMonitorViewParent;
     } else if (parameters.tfodMonitorViewIdParent != 0) {
-      imageViewParent = (ViewGroup) activity.findViewById(parameters.tfodMonitorViewIdParent);
+      imageViewParent = activity.findViewById(parameters.tfodMonitorViewIdParent);
     }
 
     if (imageViewParent != null) {
@@ -497,7 +497,7 @@ public class TFObjectDetectorImpl implements TFObjectDetector {
   @Override
   public void shutdown() {
     Thread currentThread = Thread.currentThread();
-    boolean interrupted = currentThread.interrupted();
+    boolean interrupted = Thread.interrupted();
 
     deactivate();
 

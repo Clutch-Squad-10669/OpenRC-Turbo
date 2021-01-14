@@ -1229,7 +1229,7 @@ dom.importCssString(".normal-mode .ace_cursor{\
         if (scope !== 'local') {
           return option.callback();
         }
-        return;
+
       } else {
         var local = (scope !== 'global') && (cm && cm.state.vim.options[name]);
         return (local || (scope !== 'local') && option || {}).value;
@@ -3782,7 +3782,7 @@ dom.importCssString(".normal-mode .ace_cursor{\
               foundWord = wordStart != wordEnd;
               if (wordStart == cur.ch && lineNum == cur.line &&
                   wordEnd == wordStart + dir) {
-                continue;
+
               } else {
                 return {
                   from: Math.min(wordStart, wordEnd + 1),
@@ -4581,7 +4581,7 @@ dom.importCssString(".normal-mode .ace_cursor{\
           var commandName = lhs.substring(1);
           if (this.commandMap_[commandName] && this.commandMap_[commandName].user) {
             delete this.commandMap_[commandName];
-            return;
+
           }
         } else {
           var keys = lhs;

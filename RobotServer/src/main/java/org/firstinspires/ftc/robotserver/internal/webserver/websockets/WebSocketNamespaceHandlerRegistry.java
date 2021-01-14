@@ -46,7 +46,7 @@ import java.util.List;
  */
 public final class WebSocketNamespaceHandlerRegistry {
     private static WebSocketManagerImpl manager = null;
-    private static List<WebSocketNamespaceHandler> namespaceHandlersToBeRegistered = new ArrayList<>();
+    private static final List<WebSocketNamespaceHandler> namespaceHandlersToBeRegistered = new ArrayList<>();
 
     public static synchronized void registerNamespaceHandler(@NonNull WebSocketNamespaceHandler handler) {
         if (manager != null) {

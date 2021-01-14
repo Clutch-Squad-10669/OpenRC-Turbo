@@ -234,7 +234,7 @@ public class Command extends RobocolParsableBase implements Comparable<Command>,
   public boolean equals(Object o) {
     if (o instanceof Command) {
       Command c = (Command) o;
-      if (this.mName.equals(c.mName) && this.mTimestamp == c.mTimestamp) return true;
+      return this.mName.equals(c.mName) && this.mTimestamp == c.mTimestamp;
     }
 
     return false;

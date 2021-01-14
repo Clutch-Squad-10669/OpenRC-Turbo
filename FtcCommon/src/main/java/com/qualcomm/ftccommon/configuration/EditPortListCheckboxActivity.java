@@ -69,12 +69,12 @@ public abstract class EditPortListCheckboxActivity<ITEM_T extends DeviceConfigur
     protected void handleDisabledDeviceByIndex(int index)
         {
         View itemView = findViewByIndex(index);
-        CheckBox checkbox = (CheckBox) itemView.findViewById(idItemCheckbox);
+        CheckBox checkbox = itemView.findViewById(idItemCheckbox);
         DeviceConfiguration device = this.itemList.get(index);
         if (device.isEnabled())
             {
             checkbox.setChecked(true);
-            EditText name = (EditText) itemView.findViewById(idItemEditTextResult);
+            EditText name = itemView.findViewById(idItemEditTextResult);
             name.setText(device.getName());
             }
         else
@@ -90,12 +90,12 @@ public abstract class EditPortListCheckboxActivity<ITEM_T extends DeviceConfigur
         {
         View itemView = findViewByIndex(index);
         final EditText name;
-        name = (EditText) itemView.findViewById(this.idItemEditTextResult);
+        name = itemView.findViewById(this.idItemEditTextResult);
 
         final DeviceConfiguration device;
         device = this.itemList.get(index);
 
-        CheckBox checkbox = (CheckBox) itemView.findViewById(this.idItemCheckbox);
+        CheckBox checkbox = itemView.findViewById(this.idItemCheckbox);
         checkbox.setOnClickListener(new View.OnClickListener()
         {
         @Override

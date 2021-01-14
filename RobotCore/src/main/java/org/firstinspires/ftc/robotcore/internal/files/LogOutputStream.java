@@ -46,6 +46,7 @@ import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
 import java.nio.CharBuffer;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 
 /**
  * {@link LogOutputStream} is an output stream that chunkifies things and writes them
@@ -77,7 +78,7 @@ public class LogOutputStream extends OutputStream
 
     public static PrintStream printStream(String tag)
         {
-        Charset charset = Charset.forName("UTF-8");
+        Charset charset = StandardCharsets.UTF_8;
         try
             {
             return new PrintStream(new LogOutputStream(Log.ERROR, tag, charset), true, charset.name());

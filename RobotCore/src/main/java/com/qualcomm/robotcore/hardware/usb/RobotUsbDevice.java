@@ -58,7 +58,7 @@ import java.util.Set;
 @SuppressWarnings("WeakerAccess")
 public interface RobotUsbDevice {
 
-  enum Channel { RX, TX, NONE, BOTH };
+  enum Channel { RX, TX, NONE, BOTH }
 
   class FirmwareVersion {
     public int  majorVersion;
@@ -88,10 +88,10 @@ public interface RobotUsbDevice {
 
     // See also device_filter.xml
     private static final int vendorIdFTDI = UsbConstants.VENDOR_ID_FTDI;
-    private static final Set<Integer> productIdsModernRobotics = new HashSet<Integer>(Arrays.asList(new Integer[] { 0x6001 }));
-    private static final Set<Integer> bcdDevicesModernRobotics = new HashSet<Integer>(Arrays.asList(new Integer[] { 0x0600 }));
-    private static final Set<Integer> productIdsLynx           = new HashSet<Integer>(Arrays.asList(new Integer[] { 0x6015 }));
-    private static final Set<Integer> bcdDevicesLynx           = new HashSet<Integer>(Arrays.asList(new Integer[] { 0x1000 }));
+    private static final Set<Integer> productIdsModernRobotics = new HashSet<Integer>(Arrays.asList(0x6001));
+    private static final Set<Integer> bcdDevicesModernRobotics = new HashSet<Integer>(Arrays.asList(0x0600));
+    private static final Set<Integer> productIdsLynx           = new HashSet<Integer>(Arrays.asList(0x6015));
+    private static final Set<Integer> bcdDevicesLynx           = new HashSet<Integer>(Arrays.asList(0x1000));
 
     public boolean isModernRoboticsDevice() {
       return this.vendorId == vendorIdFTDI

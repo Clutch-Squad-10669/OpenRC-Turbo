@@ -205,6 +205,6 @@ public abstract class AndroidBoard {
         OFDM_24Mb,
         OFDM_36Mb,
         OFDM_48Mb,
-        OFDM_54Mb;
+        OFDM_54Mb
     }
 }

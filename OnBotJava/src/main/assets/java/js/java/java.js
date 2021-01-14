@@ -415,7 +415,7 @@
             BufferedTokenStream.prototype.fill = function () {
                 this.lazyInit();
                 while (this.fetch(1000) === 1000) {
-                    continue;
+
                 }
             };
 
@@ -4264,7 +4264,7 @@ function calculateListsHashString(parents, returnStates) {
                 return str.replace(/\w\S*/g, function (txt) {
                     return txt.charAt(0).toUpperCase() + txt.substr(1);
                 });
-            };
+            }
 
             function equalArrays(a, b) {
                 if (!Array.isArray(a) || !Array.isArray(b))
@@ -4280,7 +4280,7 @@ function calculateListsHashString(parents, returnStates) {
                         return false;
                 }
                 return true;
-            };
+            }
 
             exports.Hash = Hash;
             exports.Set = Set;

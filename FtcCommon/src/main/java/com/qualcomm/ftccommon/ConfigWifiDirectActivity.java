@@ -73,8 +73,8 @@ public class ConfigWifiDirectActivity extends ThemedActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_config_wifi_direct);
 
-    textPleaseWait = (TextView) findViewById(R.id.textPleaseWait);
-    textBadDeviceName = (TextView) findViewById(R.id.textBadDeviceName);
+    textPleaseWait = findViewById(R.id.textPleaseWait);
+    textBadDeviceName = findViewById(R.id.textBadDeviceName);
 
     context = this;
   }

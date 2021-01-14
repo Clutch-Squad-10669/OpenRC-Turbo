@@ -49,7 +49,7 @@ import org.firstinspires.ftc.robotcore.internal.system.Assert;
  */
 public class Utility {
 
-  private Activity activity;
+  private final Activity activity;
 
   public Utility(Activity activity) {
     this.activity = activity;
@@ -72,14 +72,14 @@ public class Utility {
   }
 
   public void setFeedbackText(CharSequence title, CharSequence message, final @IdRes int idParent, @LayoutRes int layout_id, @IdRes int idTitle, @IdRes int idMessage, @IdRes int idButtonDismiss) {
-    LinearLayout parent = (LinearLayout) activity.findViewById(idParent);
+    LinearLayout parent = activity.findViewById(idParent);
     parent.setVisibility(View.VISIBLE);
     parent.removeAllViews();
     LayoutInflater inflater = activity.getLayoutInflater();
     inflater.inflate(layout_id, parent, true);
-    TextView text0 = (TextView) parent.findViewById(idTitle);
-    TextView text1 = (TextView) parent.findViewById(idMessage);
-    Button buttonDismiss = (Button) parent.findViewById(idButtonDismiss);
+    TextView text0 = parent.findViewById(idTitle);
+    TextView text1 = parent.findViewById(idMessage);
+    Button buttonDismiss = parent.findViewById(idButtonDismiss);
 
     if (text0 != null) text0.setText(title);
     if (text1 != null) text1.setText(message);
@@ -94,16 +94,16 @@ public class Utility {
   }
 
   public void hideFeedbackText(int idParent) {
-    LinearLayout parent = (LinearLayout) activity.findViewById(idParent);
+    LinearLayout parent = activity.findViewById(idParent);
     parent.removeAllViews();
     parent.setVisibility(View.GONE);
   }
 
   public @Nullable CharSequence[] getFeedbackText(@IdRes int info_id, @LayoutRes int layout_id, @IdRes int feedback0, @IdRes int feedback1) {
-    LinearLayout layout = (LinearLayout) activity.findViewById(info_id);
+    LinearLayout layout = activity.findViewById(info_id);
     Assert.assertTrue(layout != null);
-    TextView text0 = (TextView) layout.findViewById(feedback0);
-    TextView text1 = (TextView) layout.findViewById(feedback1);
+    TextView text0 = layout.findViewById(feedback0);
+    TextView text1 = layout.findViewById(feedback1);
 
     boolean text0Null = text0==null || text0.getText().length()==0;
     boolean text1Null = text1==null || text1.getText().length()==0;

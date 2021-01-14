@@ -44,7 +44,7 @@ public enum CurrentUnit {
         }
     };
 
-    private double ampsPerUnit;
+    private final double ampsPerUnit;
 
     CurrentUnit(double ampsPerUnit) {
         this.ampsPerUnit = ampsPerUnit;

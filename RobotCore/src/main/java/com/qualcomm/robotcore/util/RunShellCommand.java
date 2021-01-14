@@ -45,7 +45,7 @@ public class RunShellCommand {
 
   private Process process = null;
   private boolean logging = false;
-  private static int BUFFER_SIZE = 512 * 1024;
+  private static final int BUFFER_SIZE = 512 * 1024;
 
   /**
    * Constructor

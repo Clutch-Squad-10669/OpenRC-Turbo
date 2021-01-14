@@ -11,13 +11,14 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 
 @SuppressWarnings("WeakerAccess")
 public class ReadWriteFile {
 
     public static final String TAG = "ReadWriteFile";
 
-    protected static Charset charset = Charset.forName("UTF-8");
+    protected static Charset charset = StandardCharsets.UTF_8;
 
     public static String readFileOrThrow(File file) throws IOException {
 

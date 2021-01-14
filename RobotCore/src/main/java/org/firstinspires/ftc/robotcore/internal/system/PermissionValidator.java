@@ -48,9 +48,9 @@ public final class PermissionValidator {
     private final String TAG = "PermissionValidator";
 
     private static Activity activity;
-    private PermissionListener listener;
-    private PreferencesHelper preferencesHelper;
-    private List<String> asked;
+    private final PermissionListener listener;
+    private final PreferencesHelper preferencesHelper;
+    private final List<String> asked;
 
     private enum PermissionState {
         GRANTED,
@@ -61,7 +61,7 @@ public final class PermissionValidator {
     private static final int SOME_RANDOM_NUMBER = 1;
 
     public PermissionValidator(Activity activity, PermissionListener listener) {
-        this.activity = activity;
+        PermissionValidator.activity = activity;
         this.listener = listener;
         this.preferencesHelper = new PreferencesHelper(TAG);
         this.asked = new ArrayList<String>();
@@ -128,7 +128,7 @@ public final class PermissionValidator {
         alert.show();
     }
 
-    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         for (int i = 0; i < grantResults.length; i++) {
             if (grantResults[i] != PackageManager.PERMISSION_GRANTED) {
                 RobotLog.ee(TAG, "You must grant permission to %s.", permissions[i]);

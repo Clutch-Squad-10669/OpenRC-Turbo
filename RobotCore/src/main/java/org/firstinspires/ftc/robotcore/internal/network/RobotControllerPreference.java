@@ -47,7 +47,7 @@ public class RobotControllerPreference
     // State
     //----------------------------------------------------------------------------------------------
 
-    private String prefName;
+    private final String prefName;
 
     // There are only a fixed set of supported preference types. We just enumerate them
     // here in the interests of keeping our serialization logic simple.

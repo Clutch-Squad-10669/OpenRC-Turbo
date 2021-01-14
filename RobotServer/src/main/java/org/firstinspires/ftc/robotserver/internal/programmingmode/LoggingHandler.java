@@ -13,7 +13,7 @@ import java.io.IOException;
  */
 public class LoggingHandler extends WebHandlerDecorator {
 
-  private ProgrammingModeManager programmingModeManager;
+  private final ProgrammingModeManager programmingModeManager;
 
   public LoggingHandler(ProgrammingModeManager programmingModeManager, WebHandler delegate) {
     super(delegate);

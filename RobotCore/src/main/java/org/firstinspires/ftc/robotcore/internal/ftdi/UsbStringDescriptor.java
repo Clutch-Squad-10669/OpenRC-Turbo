@@ -35,6 +35,7 @@ package org.firstinspires.ftc.robotcore.internal.ftdi;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 
 /**
  * Created by bob on 3/27/2017.
@@ -54,6 +55,6 @@ public class UsbStringDescriptor extends UsbDescriptorHeader
         super(descriptor);                                                          // 0,1
         byte[] data = new byte[bLength-super.cbOverhead()];
         descriptor.get(data);
-        string = new String(data, Charset.forName("UTF-16LE"));
+        string = new String(data, StandardCharsets.UTF_16LE);
         }
     }

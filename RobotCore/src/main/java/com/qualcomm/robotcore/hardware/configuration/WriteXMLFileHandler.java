@@ -53,10 +53,10 @@ import java.util.List;
 
 public class WriteXMLFileHandler {
 
-  private XmlSerializer serializer;
+  private final XmlSerializer serializer;
   private HashSet<String> names = new HashSet<String>();
   private List<String> duplicates = new ArrayList<String>();
-  private String[] indentation = {"    ", "        ", "            "};
+  private final String[] indentation = {"    ", "        ", "            "};
   private int indent = 0;
 
   public WriteXMLFileHandler() {
@@ -119,7 +119,7 @@ public class WriteXMLFileHandler {
   private void writeDeviceInterfaceModule(final DeviceInterfaceModuleConfiguration controller) throws IOException {
     writeUsbController(controller, null, new ThrowingRunnable<IOException>() {
       @Override public void run() throws IOException {
-          DeviceInterfaceModuleConfiguration deviceInterfaceModuleConfiguration = (DeviceInterfaceModuleConfiguration) controller;
+          DeviceInterfaceModuleConfiguration deviceInterfaceModuleConfiguration = controller;
 
           for (DeviceConfiguration device : deviceInterfaceModuleConfiguration.getPwmOutputs()) {
             writeDeviceNameAndPort(device);

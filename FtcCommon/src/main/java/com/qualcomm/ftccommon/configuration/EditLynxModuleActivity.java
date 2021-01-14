@@ -75,11 +75,11 @@ public class EditLynxModuleActivity extends EditActivity
         String[] strings = getResources().getStringArray(R.array.lynx_module_options_array);
         listKeys = DisplayNameAndRequestCode.fromArray(strings);
 
-        ListView listView = (ListView) findViewById(R.id.lynx_module_devices);
+        ListView listView = findViewById(R.id.lynx_module_devices);
         listView.setAdapter(new ArrayAdapter<DisplayNameAndRequestCode>(this, android.R.layout.simple_list_item_1, listKeys));
         listView.setOnItemClickListener(editLaunchListener);
 
-        lynx_module_name = (EditText) findViewById(R.id.lynx_module_name);
+        lynx_module_name = findViewById(R.id.lynx_module_name);
 
         EditParameters parameters = EditParameters.fromIntent(this, getIntent());
         deserialize(parameters);
@@ -109,10 +109,10 @@ public class EditLynxModuleActivity extends EditActivity
     protected void sendIdentify(boolean shouldIdentify)
         {
         CommandList.CmdVisuallyIdentify cmdVisuallyIdentify = new CommandList.CmdVisuallyIdentify(lynxModuleConfiguration.getModuleSerialNumber(), shouldIdentify);
-        sendOrInject(new Command(cmdVisuallyIdentify.Command, cmdVisuallyIdentify.serialize()));
+        sendOrInject(new Command(CommandList.CmdVisuallyIdentify.Command, cmdVisuallyIdentify.serialize()));
         }
 
-    private AdapterView.OnItemClickListener editLaunchListener = new AdapterView.OnItemClickListener()
+    private final AdapterView.OnItemClickListener editLaunchListener = new AdapterView.OnItemClickListener()
         {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id)

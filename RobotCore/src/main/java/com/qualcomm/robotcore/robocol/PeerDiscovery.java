@@ -63,7 +63,7 @@ public class PeerDiscovery extends RobocolParsableBase {
     NOT_CONNECTED_DUE_TO_PREEXISTING_CONNECTION(3);
 
     private static final PeerType[] VALUES_CACHE = PeerType.values();
-    private int type;
+    private final int type;
 
     /**
      * Create a PeerType from a byte
@@ -80,7 +80,7 @@ public class PeerDiscovery extends RobocolParsableBase {
       return p;
     }
 
-    private PeerType(int type) {
+    PeerType(int type) {
       this.type = type;
     }
 

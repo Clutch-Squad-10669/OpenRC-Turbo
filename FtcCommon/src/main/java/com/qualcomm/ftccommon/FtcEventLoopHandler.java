@@ -294,7 +294,7 @@ public class FtcEventLoopHandler implements BatteryChecker.BatteryWatcher {
       updateUITimer.reset();
 
       // Get access to gamepad 1 and 2
-      Gamepad gamepads[] = getGamepads();
+      Gamepad[] gamepads = getGamepads();
       callback.updateUi(activeOpModeName, gamepads);
     }
   }

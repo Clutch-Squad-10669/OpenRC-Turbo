@@ -142,7 +142,7 @@ public class FtcLynxModuleAddressUpdateActivity extends EditActivity
                     {
                     displayedModuleList.initialize(currentModules);
 
-                    TextView instructions = (TextView) findViewById(R.id.lynxAddressListInstructions);
+                    TextView instructions = findViewById(R.id.lynxAddressListInstructions);
                     if (currentModules.isEmpty())
                         {
                         instructions.setText(getString(R.string.lynx_address_instructions_no_devices));
@@ -173,7 +173,7 @@ public class FtcLynxModuleAddressUpdateActivity extends EditActivity
 
         public void initialize(List<USBAccessibleLynxModule> modules)
             {
-            moduleList = (ViewGroup) findViewById(R.id.moduleList);
+            moduleList = findViewById(R.id.moduleList);
             moduleList.removeAllViews();
 
             // Keep addresses of things that can't be changed out of the action
@@ -221,7 +221,7 @@ public class FtcLynxModuleAddressUpdateActivity extends EditActivity
 
         protected DisplayedModule from(SerialNumber serialNumber)
             {
-            ViewGroup parent = (ViewGroup) findViewById(R.id.moduleList);
+            ViewGroup parent = findViewById(R.id.moduleList);
             for (int i = 0; i < parent.getChildCount(); i++)
                 {
                 DisplayedModule displayedModule = new DisplayedModule(parent.getChildAt(i));
@@ -274,22 +274,22 @@ public class FtcLynxModuleAddressUpdateActivity extends EditActivity
         public DisplayedModule(View view)
             {
             this.view = view;
-            this.spinner = (Spinner) view.findViewById(R.id.spinnerChooseAddress);
+            this.spinner = view.findViewById(R.id.spinnerChooseAddress);
             }
 
         public SerialNumber getSerialNumber()
             {
-            TextView serial = (TextView) view.findViewById(R.id.moduleSerialText);
+            TextView serial = view.findViewById(R.id.moduleSerialText);
             return (SerialNumber)serial.getTag();
             }
 
         public void initialize(USBAccessibleLynxModule module, List<Integer> addresses)
             {
-            TextView serial = (TextView) view.findViewById(R.id.moduleSerialText);
+            TextView serial = view.findViewById(R.id.moduleSerialText);
             serial.setText(module.getSerialNumber().toString());
             serial.setTag(module.getSerialNumber()); // so we can find it later
 
-            final TextView address = (TextView) view.findViewById(R.id.moduleAddressText);
+            final TextView address = view.findViewById(R.id.moduleAddressText);
             address.setText(getString(R.string.lynx_address_format_module_address, module.getModuleAddress()));
 
             boolean changeable = module.isModuleAddressChangeable();
@@ -514,7 +514,7 @@ public class FtcLynxModuleAddressUpdateActivity extends EditActivity
 
         public boolean containsCurrentAddress(int address)
             {
-            return current.values().contains(address);
+            return current.containsValue(address);
             }
 
         public void putCurrentAddress(SerialNumber serialNumber, int address)

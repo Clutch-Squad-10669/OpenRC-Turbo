@@ -140,7 +140,7 @@ public abstract class StartableService extends Service
 
     @Override public void onTaskRemoved(Intent rootIntent)
         {
-        RobotLog.vv(getTag(), "onTaskRemoved()");;
+        RobotLog.vv(getTag(), "onTaskRemoved()");
         }
 
     }

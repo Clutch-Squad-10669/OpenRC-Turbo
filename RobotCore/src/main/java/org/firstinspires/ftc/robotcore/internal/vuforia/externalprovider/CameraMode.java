@@ -90,7 +90,7 @@ public class CameraMode
 
     public long getNsFrameDuration()
         {
-        return (long)Math.round((double) ElapsedTime.SECOND_IN_NANO / fps); // ie: billion * secondsPerFrame
+        return Math.round((double) ElapsedTime.SECOND_IN_NANO / fps); // ie: billion * secondsPerFrame
         }
 
     public int getFramesPerSecond()

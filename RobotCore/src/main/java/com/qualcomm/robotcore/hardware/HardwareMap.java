@@ -436,8 +436,8 @@ public class HardwareMap implements Iterable<HardwareDevice> {
    * @see #get(String)
    */
   public class DeviceMapping<DEVICE_TYPE extends HardwareDevice> implements Iterable<DEVICE_TYPE> {
-    private Map <String, DEVICE_TYPE> map = new HashMap<String, DEVICE_TYPE>();
-    private Class<DEVICE_TYPE> deviceTypeClass;
+    private final Map <String, DEVICE_TYPE> map = new HashMap<String, DEVICE_TYPE>();
+    private final Class<DEVICE_TYPE> deviceTypeClass;
 
     public DeviceMapping(Class<DEVICE_TYPE> deviceTypeClass) {
       this.deviceTypeClass = deviceTypeClass;

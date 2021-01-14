@@ -35,8 +35,8 @@ import java.lang.reflect.Constructor;
 
 public class OnBotJavaDeterminer {
 
-    private static String TAG = "OnBotJavaDeterminer";
-    private static String onBotJavaConstructorName = "org.firstinspires.ftc.onbotjava.OnBotJavaClassLoader";
+    private static final String TAG = "OnBotJavaDeterminer";
+    private static final String onBotJavaConstructorName = "org.firstinspires.ftc.onbotjava.OnBotJavaClassLoader";
 
     public static boolean isOnBotJava(Class clazz)
     {
@@ -47,11 +47,7 @@ public class OnBotJavaDeterminer {
         try {
             Constructor ctor = targetClazz.getConstructor();
             String classLoaderName = ctor.getName();
-            if (classLoaderName.equals(onBotJavaConstructorName)) {
-                result = true;
-            } else {
-                result = false;
-            }
+            result = classLoaderName.equals(onBotJavaConstructorName);
         } catch (NoSuchMethodException e) {
             RobotLog.vv(TAG, "isOnBotJava: class=%s loader=%s: %s", clazz.getSimpleName(), classLoader.getClass().getSimpleName(), false);
             return false;

@@ -69,48 +69,48 @@ public class EditMatrixControllerActivity extends EditActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.matrices);
 
-    controller_name = (EditText) findViewById(R.id.matrixcontroller_name);
+    controller_name = findViewById(R.id.matrixcontroller_name);
 
     // Servos
-    LinearLayout layout_port1 = (LinearLayout) findViewById(R.id.linearLayout_matrix1);
+    LinearLayout layout_port1 = findViewById(R.id.linearLayout_matrix1);
     info_port1 = getLayoutInflater().inflate(R.layout.matrix_devices, layout_port1, true);
-    TextView port1 = (TextView) info_port1.findViewById(R.id.port_number);
+    TextView port1 = info_port1.findViewById(R.id.port_number);
     port1.setText("1");
 
-    LinearLayout layout_port2 = (LinearLayout) findViewById(R.id.linearLayout_matrix2);
+    LinearLayout layout_port2 = findViewById(R.id.linearLayout_matrix2);
     info_port2 = getLayoutInflater().inflate(R.layout.matrix_devices, layout_port2, true);
-    TextView port2 = (TextView) info_port2.findViewById(R.id.port_number);
+    TextView port2 = info_port2.findViewById(R.id.port_number);
     port2.setText("2");
 
-    LinearLayout layout_port3 = (LinearLayout) findViewById(R.id.linearLayout_matrix3);
+    LinearLayout layout_port3 = findViewById(R.id.linearLayout_matrix3);
     info_port3 = getLayoutInflater().inflate(R.layout.matrix_devices, layout_port3, true);
-    TextView port3 = (TextView) info_port3.findViewById(R.id.port_number);
+    TextView port3 = info_port3.findViewById(R.id.port_number);
     port3.setText("3");
 
-    LinearLayout layout_port4 = (LinearLayout) findViewById(R.id.linearLayout_matrix4);
+    LinearLayout layout_port4 = findViewById(R.id.linearLayout_matrix4);
     info_port4 = getLayoutInflater().inflate(R.layout.matrix_devices, layout_port4, true);
-    TextView port4 = (TextView) info_port4.findViewById(R.id.port_number);
+    TextView port4 = info_port4.findViewById(R.id.port_number);
     port4.setText("4");
 
     // Motors
-    LinearLayout layout_port5 = (LinearLayout) findViewById(R.id.linearLayout_matrix5);
+    LinearLayout layout_port5 = findViewById(R.id.linearLayout_matrix5);
     info_port5 = getLayoutInflater().inflate(R.layout.matrix_devices, layout_port5, true);
-    TextView port5 = (TextView) info_port5.findViewById(R.id.port_number);
+    TextView port5 = info_port5.findViewById(R.id.port_number);
     port5.setText("1");
 
-    LinearLayout layout_port6 = (LinearLayout) findViewById(R.id.linearLayout_matrix6);
+    LinearLayout layout_port6 = findViewById(R.id.linearLayout_matrix6);
     info_port6 = getLayoutInflater().inflate(R.layout.matrix_devices, layout_port6, true);
-    TextView port6 = (TextView) info_port6.findViewById(R.id.port_number);
+    TextView port6 = info_port6.findViewById(R.id.port_number);
     port6.setText("2");
 
-    LinearLayout layout_port7 = (LinearLayout) findViewById(R.id.linearLayout_matrix7);
+    LinearLayout layout_port7 = findViewById(R.id.linearLayout_matrix7);
     info_port7 = getLayoutInflater().inflate(R.layout.matrix_devices, layout_port7, true);
-    TextView port7 = (TextView) info_port7.findViewById(R.id.port_number);
+    TextView port7 = info_port7.findViewById(R.id.port_number);
     port7.setText("3");
 
-    LinearLayout layout_port8 = (LinearLayout) findViewById(R.id.linearLayout_matrix8);
+    LinearLayout layout_port8 = findViewById(R.id.linearLayout_matrix8);
     info_port8 = getLayoutInflater().inflate(R.layout.matrix_devices, layout_port8, true);
-    TextView port8 = (TextView) info_port8.findViewById(R.id.port_number);
+    TextView port8 = info_port8.findViewById(R.id.port_number);
     port8.setText("4");
 
     EditParameters parameters = EditParameters.fromIntent(this, getIntent());
@@ -143,17 +143,17 @@ public class EditMatrixControllerActivity extends EditActivity {
   }
 
   private void addNameTextChangeWatcherOnPort(View info_port, DeviceConfiguration module) {
-    EditText name = (EditText) info_port.findViewById(R.id.editTextResult);
+    EditText name = info_port.findViewById(R.id.editTextResult);
 
     name.addTextChangedListener(new UsefulTextWatcher(module));
   }
 
   private void handleDisabledDevice(int port, View info_port, List<? extends DeviceConfiguration> list) {
-    CheckBox checkbox = (CheckBox) info_port.findViewById(R.id.checkbox_port);
+    CheckBox checkbox = info_port.findViewById(R.id.checkbox_port);
     DeviceConfiguration device = list.get(port-1);
     if (device.isEnabled()) {
       checkbox.setChecked(true);
-      EditText name = (EditText) info_port.findViewById(R.id.editTextResult);
+      EditText name = info_port.findViewById(R.id.editTextResult);
       name.setText(device.getName());
     } else {
       checkbox.setChecked(true); // kind of a hack. Sets the checkbox to true, so
@@ -166,12 +166,12 @@ public class EditMatrixControllerActivity extends EditActivity {
   private void addCheckBoxListenerOnPort(final int port, View info_port, List<? extends DeviceConfiguration> list) {
 
     final EditText name;
-    name = (EditText) info_port.findViewById(R.id.editTextResult);
+    name = info_port.findViewById(R.id.editTextResult);
 
     final DeviceConfiguration device;
     device = list.get(port-1);
 
-    CheckBox checkbox = (CheckBox) info_port.findViewById(R.id.checkbox_port);
+    CheckBox checkbox = info_port.findViewById(R.id.checkbox_port);
     checkbox.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
@@ -247,7 +247,7 @@ public class EditMatrixControllerActivity extends EditActivity {
    */
   private class UsefulTextWatcher implements TextWatcher {
 
-    private DeviceConfiguration module;
+    private final DeviceConfiguration module;
     private UsefulTextWatcher(DeviceConfiguration module) {
       this.module = module;
     }

@@ -73,8 +73,7 @@ public class FtDeviceManager extends FtConstants
 
     private static final Context mContext = AppUtil.getDefContext();
     private static PendingIntent mPendingIntent = null;
-    private static List<VendorAndProductIds> mSupportedDevices = new ArrayList<VendorAndProductIds>(Arrays.asList(new VendorAndProductIds[]{
-            new VendorAndProductIds(0x0403, 24597),    // 0x6015    X series
+    private static final List<VendorAndProductIds> mSupportedDevices = new ArrayList<VendorAndProductIds>(Arrays.asList(new VendorAndProductIds(0x0403, 24597),    // 0x6015    X series
             new VendorAndProductIds(0x0403, 24596),    // 0x6014    ft232h
             new VendorAndProductIds(0x0403, 24593),    // 0x6011    ft4232h
             new VendorAndProductIds(0x0403, 24592),    // 0x6010    FT2232 or FT2232H
@@ -90,12 +89,12 @@ public class FtDeviceManager extends FtConstants
             new VendorAndProductIds(0x0403, 24594),    // 0x6012    ES001H
             new VendorAndProductIds(0x08ac, 4133),     // 0x1025    Macraigor - customer request
             new VendorAndProductIds(0x15d6, 1),        // 0x0001    Keith Support Request 8/10/04
-            new VendorAndProductIds(0x0403, 24599)})); // 0x6017    Additional VID/PID
+            new VendorAndProductIds(0x0403, 24599))); // 0x6017    Additional VID/PID
     private static UsbManager mUsbManager;
 
     private ArrayList<FtDevice> mFtdiDevices;
 
-    private BroadcastReceiver mUsbPlugEvents = new BroadcastReceiver()
+    private final BroadcastReceiver mUsbPlugEvents = new BroadcastReceiver()
         {
         public void onReceive(Context context, Intent intent)
             {
@@ -126,7 +125,7 @@ public class FtDeviceManager extends FtConstants
             }
         };
 
-    private static BroadcastReceiver mUsbDevicePermissions = new BroadcastReceiver()
+    private static final BroadcastReceiver mUsbDevicePermissions = new BroadcastReceiver()
         {
         public void onReceive(Context context, Intent intent)
             {
@@ -279,7 +278,7 @@ public class FtDeviceManager extends FtConstants
 
         for (int i = 0; i < listSize; ++i)
             {
-            VendorAndProductIds vidpid = (VendorAndProductIds) mSupportedDevices.get(i);
+            VendorAndProductIds vidpid = mSupportedDevices.get(i);
             arrayVIDPID[0][i] = vidpid.getVendorId();
             arrayVIDPID[1][i] = vidpid.getProductId();
             }
@@ -426,7 +425,7 @@ public class FtDeviceManager extends FtConstants
 
     public synchronized FtDevice openByUsbDevice(UsbDevice dev)
         {
-        return this.openByUsbDevice(dev, (FtDeviceManagerParams) null);
+        return this.openByUsbDevice(dev, null);
         }
 
     public synchronized FtDevice openByIndex(int index, FtDeviceManagerParams params)
@@ -448,7 +447,7 @@ public class FtDeviceManager extends FtConstants
 
     public synchronized FtDevice openByIndex(int index)
         {
-        return this.openByIndex(index, (FtDeviceManagerParams) null);
+        return this.openByIndex(index, null);
         }
 
     public synchronized FtDevice openBySerialNumber(String serialNumber, FtDeviceManagerParams params)
@@ -458,7 +457,7 @@ public class FtDeviceManager extends FtConstants
 
         for (int i = 0; i < this.mFtdiDevices.size(); ++i)
             {
-            FtDevice tmpDev = (FtDevice) this.mFtdiDevices.get(i);
+            FtDevice tmpDev = this.mFtdiDevices.get(i);
             if (tmpDev != null)
                 {
                 devInfo = tmpDev.mDeviceInfo;
@@ -483,7 +482,7 @@ public class FtDeviceManager extends FtConstants
 
     public synchronized FtDevice openBySerialNumber(String serialNumber)
         {
-        return this.openBySerialNumber(serialNumber, (FtDeviceManagerParams) null);
+        return this.openBySerialNumber(serialNumber, null);
         }
 
     public synchronized FtDevice openByDescription(String description, FtDeviceManagerParams params)
@@ -519,7 +518,7 @@ public class FtDeviceManager extends FtConstants
 
     public synchronized FtDevice openByDescription(String description)
         {
-        return this.openByDescription(description, (FtDeviceManagerParams) null);
+        return this.openByDescription(description, null);
         }
 
     public synchronized FtDevice openByLocation(int location, FtDeviceManagerParams params)
@@ -529,7 +528,7 @@ public class FtDeviceManager extends FtConstants
 
         for (int i = 0; i < this.mFtdiDevices.size(); ++i)
             {
-            FtDevice tmpDev = (FtDevice) this.mFtdiDevices.get(i);
+            FtDevice tmpDev = this.mFtdiDevices.get(i);
             if (tmpDev != null)
                 {
                 devInfo = tmpDev.mDeviceInfo;
@@ -555,7 +554,7 @@ public class FtDeviceManager extends FtConstants
 
     public synchronized FtDevice openByLocation(int location)
         {
-        return this.openByLocation(location, (FtDeviceManagerParams) null);
+        return this.openByLocation(location, null);
         }
 
     public int addOrUpdateUsbDevice(UsbDevice usbDevice)

@@ -231,8 +231,8 @@ public class FtcLynxFirmwareUpdateActivity extends ThemedActivity
                         }
 
                     View itemView = LayoutInflater.from(this).inflate(moduleLayout, null);
-                    TextView topLine = (TextView) itemView.findViewById(android.R.id.text1);
-                    TextView bottomLine = (TextView) itemView.findViewById(android.R.id.text2);
+                    TextView topLine = itemView.findViewById(android.R.id.text1);
+                    TextView bottomLine = itemView.findViewById(android.R.id.text2);
                     topLine.setText(title);
                     topLine.setTextSize(18f);
                     bottomLine.setText(description);

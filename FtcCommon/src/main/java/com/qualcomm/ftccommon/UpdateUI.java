@@ -264,12 +264,12 @@ public class UpdateUI {
         if (!errorMessage.isEmpty()) {
           String message = activity.getString(R.string.error_text_error, trimTextErrorMessage(errorMessage));
           setText(textErrorMessage, message);
-          textErrorMessage.setTextColor(AppUtil.getInstance().getColor(R.color.text_error));
+          textErrorMessage.setTextColor(AppUtil.getColor(R.color.text_error));
           if (stateMonitor != null) stateMonitor.updateErrorMessage(message);
         } else {
           String message = activity.getString(R.string.error_text_warning, trimTextErrorMessage(warningMessage));
           setText(textErrorMessage, message);
-          textErrorMessage.setTextColor(AppUtil.getInstance().getColor(R.color.text_warning));
+          textErrorMessage.setTextColor(AppUtil.getColor(R.color.text_warning));
           if (stateMonitor != null) stateMonitor.updateWarningMessage(message);
         }
         dimmer.longBright();

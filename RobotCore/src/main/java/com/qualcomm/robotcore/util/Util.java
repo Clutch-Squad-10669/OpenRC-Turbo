@@ -137,8 +137,6 @@ public class Util {
       return false;
     if (!string.trim().equals(string))
       return false;
-    if (string.length() == 0)
-      return false;
-    return true;
+      return string.length() != 0;
   }
 }

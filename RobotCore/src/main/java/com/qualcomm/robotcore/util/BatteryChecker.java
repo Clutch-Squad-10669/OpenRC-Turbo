@@ -89,10 +89,10 @@ public class BatteryChecker {
   // Don't spam the log if there's nothing wrong with the battery.
   private static final int LOG_THRESHOLD = 70;
 
-  private Context context;
-  private long repeatDelay;
-  private long initialDelay = 5000; // ms. 'not exactly clear why we wait to send
-  private BatteryWatcher watcher;
+  private final Context context;
+  private final long repeatDelay;
+  private final long initialDelay = 5000; // ms. 'not exactly clear why we wait to send
+  private final BatteryWatcher watcher;
   protected final Handler batteryHandler;
   protected boolean closed;
   protected final Monitor monitor = new Monitor();

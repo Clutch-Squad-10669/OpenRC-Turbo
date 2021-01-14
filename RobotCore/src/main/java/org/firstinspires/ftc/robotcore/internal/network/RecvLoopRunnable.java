@@ -26,9 +26,9 @@ public class RecvLoopRunnable implements Runnable {
      * To turn on traffic stats on the inspection activities, set this
      * and InspectionActivity.SHOW_TRAFFIC_STATS to true.
      */
-    private static       boolean DO_TRAFFIC_DATA = false;
+    private static final boolean DO_TRAFFIC_DATA = false;
 
-    private static ElapsedTime bandwidthSampleTimer = new ElapsedTime(ElapsedTime.Resolution.MILLISECONDS);
+    private static final ElapsedTime bandwidthSampleTimer = new ElapsedTime(ElapsedTime.Resolution.MILLISECONDS);
     private final static int BANDWIDTH_SAMPLE_PERIOD = 500;
     private double bytesPerMilli = 0.0;
 

@@ -144,7 +144,7 @@ public class TelemetryImpl implements Telemetry, TelemetryInternal
 
     protected class LineableContainer implements Iterable<Lineable>
         {
-        private ArrayList<Lineable> list = new ArrayList<Lineable>();
+        private final ArrayList<Lineable> list = new ArrayList<Lineable>();
 
         void boundedAddToList(int index, Lineable data)
             {
@@ -863,7 +863,7 @@ public class TelemetryImpl implements Telemetry, TelemetryInternal
         {
         synchronized (theLock)
             {
-            return this.actions.remove((Runnable)token);
+            return this.actions.remove(token);
             }
         }
 

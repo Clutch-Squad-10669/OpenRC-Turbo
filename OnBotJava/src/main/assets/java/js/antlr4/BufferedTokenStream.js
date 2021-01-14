@@ -368,7 +368,7 @@ BufferedTokenStream.prototype.getText = function(interval) {
 BufferedTokenStream.prototype.fill = function() {
 	this.lazyInit();
 	while (this.fetch(1000) === 1000) {
-		continue;
+
 	}
 };
 

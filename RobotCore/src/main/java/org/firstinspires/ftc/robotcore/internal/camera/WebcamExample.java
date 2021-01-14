@@ -330,9 +330,9 @@ public class WebcamExample
                  */
                 saveBitmap(cameraFrame.getFrameNumber(), bitmap, null);
                 }
-            };
+            }
 
-        /**
+            /**
          * Saves a {@link Bitmap} to a file, either in a compressed format, or as a Windows .bmp file.
          */
         public void saveBitmap(long frameNumber, Bitmap bitmap, @Nullable Bitmap.CompressFormat compressFormat)

@@ -90,7 +90,7 @@ public class EditI2cDevicesActivityLynx extends EditI2cDevicesActivityAbstract<L
     @Override
     protected void localizeSpinner(View itemView)
         {
-        Spinner spinner = (Spinner) itemView.findViewById(this.idItemSpinner);
+        Spinner spinner = itemView.findViewById(this.idItemSpinner);
 
         List<ConfigurationType> deviceTypes =
                 ConfigurationTypeManager.getInstance().getApplicableConfigTypes(ConfigurationType.DeviceFlavor.I2C, controlSystem, i2cBus);

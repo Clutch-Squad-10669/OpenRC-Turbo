@@ -495,7 +495,7 @@ public class ProgramAndManageActivity extends ThemedActivity
         setContentView(R.layout.activity_program_and_manage);
 
         webInfo = RobotControllerWebInfo.fromJson(getIntent().getStringExtra(LaunchActivityConstantsList.RC_WEB_INFO));
-        webView = (WebView) findViewById(R.id.webView);
+        webView = findViewById(R.id.webView);
 
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);

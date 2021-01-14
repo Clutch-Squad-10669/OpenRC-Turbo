@@ -574,7 +574,7 @@ public abstract class BNO055IMUImpl extends I2cDeviceSynchDeviceWithParameters<I
     public synchronized Temperature getTemperature()
         {
         byte b = this.read8(Register.TEMP);
-        return new Temperature(this.parameters.temperatureUnit.toTempUnit(), (double)b, System.nanoTime());
+        return new Temperature(this.parameters.temperatureUnit.toTempUnit(), b, System.nanoTime());
         }
 
     public synchronized MagneticFlux getMagneticFieldStrength()

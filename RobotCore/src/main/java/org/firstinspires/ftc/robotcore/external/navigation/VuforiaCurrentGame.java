@@ -85,9 +85,9 @@ public class VuforiaCurrentGame extends VuforiaBase {
         OpenGLMatrix
             .translation(halfField, -quadField, mmTargetHeight)
             .multiplied(Orientation.getRotationMatrix(EXTRINSIC, XYZ, DEGREES, 90, 0, -90)));
-  };
+  }
 
-  public VuforiaCurrentGame() {
+    public VuforiaCurrentGame() {
     super(ASSET_NAME, TRACKABLE_NAMES, LOCATIONS_ON_FIELD);
   }
 }

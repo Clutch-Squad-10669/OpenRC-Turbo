@@ -52,9 +52,9 @@ public abstract class ModernRoboticsUsbController extends ModernRoboticsUsbDevic
     // State
     //----------------------------------------------------------------------------------------------
 
-    protected enum WRITE_STATUS { IDLE, DIRTY, READ };
+    protected enum WRITE_STATUS { IDLE, DIRTY, READ }
 
-    protected       WRITE_STATUS            writeStatus;
+        protected       WRITE_STATUS            writeStatus;
     protected       boolean                 readWriteRunnableIsRunning;
     protected final AtomicInteger           callbackWaiterCount = new AtomicInteger();
     protected final AtomicLong              readCompletionCount = new AtomicLong();

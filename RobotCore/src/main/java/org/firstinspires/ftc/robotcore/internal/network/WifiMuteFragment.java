@@ -52,9 +52,9 @@ public class WifiMuteFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
         View view = inflater.inflate(R.layout.fragment_wifi_mute, container, false);
-        timer = (TextView)view.findViewById(R.id.countdownNumber);
-        description = (TextView)view.findViewById(R.id.countdownDescription);
-        nofication = (TextView)view.findViewById(R.id.wifiDisabledNotification);
+        timer = view.findViewById(R.id.countdownNumber);
+        description = view.findViewById(R.id.countdownDescription);
+        nofication = view.findViewById(R.id.wifiDisabledNotification);
 
         view.setOnTouchListener(new View.OnTouchListener() {
             @Override

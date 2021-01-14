@@ -86,7 +86,7 @@ public abstract class EditPortListSpinnerActivity<ITEM_T extends DeviceConfigura
      */
     protected void localizeSpinner(View itemView)
         {
-        Spinner spinner = (Spinner) itemView.findViewById(idItemSpinner);
+        Spinner spinner = itemView.findViewById(idItemSpinner);
         List<ConfigurationType> deviceTypes =
                 ConfigurationTypeManager.getInstance().getApplicableConfigTypes(getDeviceFlavorBeingConfigured(), controlSystem);
 
@@ -107,7 +107,7 @@ public abstract class EditPortListSpinnerActivity<ITEM_T extends DeviceConfigura
 
     private void handleDisabledDevice(View itemView, DeviceConfiguration deviceConfiguration)
         {
-        EditText name = (EditText) itemView.findViewById(this.idItemEditTextResult);
+        EditText name = itemView.findViewById(this.idItemEditTextResult);
         if (deviceConfiguration.isEnabled())
             {
             name.setText(deviceConfiguration.getName());
@@ -123,9 +123,9 @@ public abstract class EditPortListSpinnerActivity<ITEM_T extends DeviceConfigura
     @Override
     protected void clearDevice(View itemView)
         {
-        TextView textViewPortNumber = (TextView) itemView.findViewById(this.idItemPortNumber);
+        TextView textViewPortNumber = itemView.findViewById(this.idItemPortNumber);
         int portNumber = Integer.parseInt(textViewPortNumber.getText().toString());
-        EditText nameText = (EditText) itemView.findViewById(this.idItemEditTextResult);
+        EditText nameText = itemView.findViewById(this.idItemEditTextResult);
 
         nameText.setEnabled(false);
         nameText.setText(disabledDeviceName());
@@ -137,9 +137,9 @@ public abstract class EditPortListSpinnerActivity<ITEM_T extends DeviceConfigura
     @Override
     protected void changeDevice(View itemView, ConfigurationType type)
         {
-        TextView textViewPortNumber = (TextView) itemView.findViewById(this.idItemPortNumber);
+        TextView textViewPortNumber = itemView.findViewById(this.idItemPortNumber);
         int portNumber = Integer.parseInt(textViewPortNumber.getText().toString());
-        EditText nameText = (EditText) itemView.findViewById(this.idItemEditTextResult);
+        EditText nameText = itemView.findViewById(this.idItemEditTextResult);
 
         nameText.setEnabled(true);
 

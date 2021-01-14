@@ -222,7 +222,7 @@ public class FtcEventLoop extends FtcEventLoopBase {
     checkForChangedOpModes();
 
     ftcEventLoopHandler.displayGamePadInfo(opModeManager.getActiveOpModeName());
-    Gamepad gamepads[] = ftcEventLoopHandler.getGamepads();
+    Gamepad[] gamepads = ftcEventLoopHandler.getGamepads();
 
     opModeManager.runActiveOpMode(gamepads);
   }

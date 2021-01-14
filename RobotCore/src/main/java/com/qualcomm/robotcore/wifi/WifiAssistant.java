@@ -48,7 +48,7 @@ public class WifiAssistant {
   /**
    * Wifi NetworkEvent
    */
-  public enum WifiState { CONNECTED, NOT_CONNECTED; }
+  public enum WifiState { CONNECTED, NOT_CONNECTED}
 
   /**
    * Interface for callback methods
@@ -59,7 +59,7 @@ public class WifiAssistant {
      * Callback - called when wifi connects / disconnects
      * @param event WifiEvent
      */
-    public void wifiEventCallback(WifiState event);
+    void wifiEventCallback(WifiState event);
   }
 
   private static class WifiStateBroadcastReceiver extends BroadcastReceiver {

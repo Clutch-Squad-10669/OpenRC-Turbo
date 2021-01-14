@@ -56,7 +56,7 @@ public abstract class PreferenceRemoter extends WifiStartStoppable
     //----------------------------------------------------------------------------------------------
 
     protected Context                   context;
-    private   SharedPreferences         sharedPreferences;
+    private final SharedPreferences         sharedPreferences;
     protected PreferencesHelper         preferencesHelper;
     protected SharedPreferences.OnSharedPreferenceChangeListener sharedPreferencesListener;
 

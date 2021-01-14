@@ -108,12 +108,12 @@ public abstract class EditPortListActivity<ITEM_T extends DeviceConfiguration> e
         // If there is a controller banner indicated, then insert that
         if (layoutControllerNameBanner != 0)
             {
-            LinearLayout parent = (LinearLayout) findViewById(idBannerParent);
+            LinearLayout parent = findViewById(idBannerParent);
             View banner = getLayoutInflater().inflate(layoutControllerNameBanner, parent, false);
             parent.addView(banner);
 
-            editTextBannerControllerName = (EditText) banner.findViewById(idControllerName);
-            textViewSerialNumber = (TextView) banner.findViewById(idControllerSerialNumber);
+            editTextBannerControllerName = banner.findViewById(idControllerName);
+            textViewSerialNumber = banner.findViewById(idControllerSerialNumber);
             editTextBannerControllerName.setText(controllerConfiguration.getName());
             showFixSwapButtons();
             }
@@ -163,13 +163,13 @@ public abstract class EditPortListActivity<ITEM_T extends DeviceConfiguration> e
 
     protected View createItemViewForPort(int portNumber)
         {
-        LinearLayout parent = (LinearLayout) findViewById(idListParentLayout);
+        LinearLayout parent = findViewById(idListParentLayout);
         View child = getLayoutInflater().inflate(layoutItem, parent, false);
         parent.addView(child);
 
         View result = child.findViewById(idItemRowPort);
 
-        TextView port = (TextView) result.findViewById(idItemPortNumber);
+        TextView port = result.findViewById(idItemPortNumber);
         if (port != null)
             {
             port.setText(String.format(Locale.getDefault(), "%d", portNumber));
@@ -181,7 +181,7 @@ public abstract class EditPortListActivity<ITEM_T extends DeviceConfiguration> e
     protected void addNameTextChangeWatcherOnIndex(final int index)
         {
         View itemView = findViewByIndex(index);
-        EditText name = (EditText) itemView.findViewById(idItemEditTextResult);
+        EditText name = itemView.findViewById(idItemEditTextResult);
 
         name.addTextChangedListener(new SetNameTextWatcher(findConfigByIndex(index)));
         }

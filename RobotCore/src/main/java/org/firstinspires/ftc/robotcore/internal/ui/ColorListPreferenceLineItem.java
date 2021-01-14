@@ -72,7 +72,7 @@ public class ColorListPreferenceLineItem extends LinearLayout implements Checkab
 
     protected CheckedTextView getCheckedTextView()
         {
-        return (CheckedTextView)findViewById(android.R.id.text1);
+        return findViewById(android.R.id.text1);
         }
 
     //----------------------------------------------------------------------------------------------

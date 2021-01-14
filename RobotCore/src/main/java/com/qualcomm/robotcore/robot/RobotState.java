@@ -42,7 +42,7 @@ public enum RobotState {
   STOPPED(3),
   EMERGENCY_STOP(4);
 
-  private int robotState;
+  private final int robotState;
 
   RobotState(int state) {
     this.robotState = (byte)state;

@@ -110,7 +110,7 @@ public class RecursiveFileObserver
 
     public enum Mode
         {
-        RECURSIVE, NONRECURSVIVE;
+        RECURSIVE, NONRECURSVIVE
         }
 
     //----------------------------------------------------------------------------------------------

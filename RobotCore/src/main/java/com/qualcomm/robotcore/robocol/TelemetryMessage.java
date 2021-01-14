@@ -36,6 +36,7 @@ import com.qualcomm.robotcore.util.TypeConversion;
 
 import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -47,7 +48,7 @@ import java.util.Map.Entry;
 public class TelemetryMessage extends RobocolParsableBase {
 
   public  static final String       DEFAULT_TAG = "TELEMETRY_DATA";
-  private static final Charset      CHARSET     = Charset.forName("UTF-8");
+  private static final Charset      CHARSET     = StandardCharsets.UTF_8;
 
   private final Map<String, String> dataStrings = new LinkedHashMap<String, String>();  // linked so as to preserve addition order as iteration order
   private final Map<String, Float>  dataNumbers = new LinkedHashMap<String, Float>();
@@ -233,7 +234,7 @@ public class TelemetryMessage extends RobocolParsableBase {
     if (tag.length() == 0) {
       putTagLen(buffer, 0);
     } else {
-      byte tagBytes[] = tag.getBytes(CHARSET);
+      byte[] tagBytes = tag.getBytes(CHARSET);
 
       if (tagBytes.length > cbTagMax) {
         throw new RobotCoreException(String.format("Telemetry tag cannot exceed %d bytes [%s]", cbTagMax, tag));

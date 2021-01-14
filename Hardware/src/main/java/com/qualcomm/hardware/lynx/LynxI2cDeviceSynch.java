@@ -75,11 +75,11 @@ public abstract class LynxI2cDeviceSynch extends LynxController implements I2cDe
     private boolean     loggingEnabled;
     private String      loggingTag;
     private String      name;
-    private int         msBusyWait = 3;
+    private final int         msBusyWait = 3;
     private final I2cDeviceSynchReadHistoryImpl readHistory = new I2cDeviceSynchReadHistoryImpl();
 
     protected LynxUsbUtil.Placeholder<TimestampedData> readTimeStampedPlaceholder = new LynxUsbUtil.Placeholder<TimestampedData>(TAG, "readTimestamped");
-    private LynxUsbUtil.Placeholder<TimestampedData> readStatusQueryPlaceholder = new LynxUsbUtil.Placeholder<TimestampedData>(TAG, "readStatusQuery");
+    private final LynxUsbUtil.Placeholder<TimestampedData> readStatusQueryPlaceholder = new LynxUsbUtil.Placeholder<TimestampedData>(TAG, "readStatusQuery");
 
     //----------------------------------------------------------------------------------------------
     // Construction

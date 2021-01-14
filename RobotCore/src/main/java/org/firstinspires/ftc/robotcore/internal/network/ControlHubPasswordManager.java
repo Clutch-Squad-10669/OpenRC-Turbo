@@ -61,9 +61,9 @@ public class ControlHubPasswordManager implements PasswordManager {
     private final static String FACTORY_DEFAULT_PASSWORD = "password";
 
     private String password;
-    private Context context;
-    private SharedPreferences sharedPreferences;
-    private PreferencesHelper preferencesHelper;
+    private final Context context;
+    private final SharedPreferences sharedPreferences;
+    private final PreferencesHelper preferencesHelper;
 
     public ControlHubPasswordManager()
     {

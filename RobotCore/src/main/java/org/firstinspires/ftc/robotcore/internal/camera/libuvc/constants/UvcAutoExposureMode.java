@@ -47,7 +47,7 @@ public enum UvcAutoExposureMode
         /** auto exposure time, manual iris */
         APERTURE_PRIORITY(8);
 
-    private byte value;
+    private final byte value;
 
     UvcAutoExposureMode(int value)
         {

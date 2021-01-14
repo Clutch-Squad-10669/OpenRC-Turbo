@@ -37,6 +37,7 @@ import com.qualcomm.hardware.lynx.commands.LynxResponse;
 import com.qualcomm.robotcore.exception.RobotCoreException;
 
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 
 /**
  * Created by bob on 2016-03-06.
@@ -123,13 +124,13 @@ public class LynxQueryInterfaceCommand extends LynxStandardCommand<LynxQueryInte
     @Override
     public byte[] toPayloadByteArray()
         {
-        return this.getNullTerminatedInterfaceName().getBytes(Charset.forName("UTF-8"));
+        return this.getNullTerminatedInterfaceName().getBytes(StandardCharsets.UTF_8);
         }
 
     @Override
     public void fromPayloadByteArray(byte[] rgb)
         {
-        this.setInterfaceName(new String(rgb, Charset.forName("UTF-8")));
+        this.setInterfaceName(new String(rgb, StandardCharsets.UTF_8));
         }
 
     }

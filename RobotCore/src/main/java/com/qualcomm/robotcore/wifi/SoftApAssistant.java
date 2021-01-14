@@ -65,13 +65,13 @@ public class SoftApAssistant extends NetworkConnection {
   private final List<ScanResult> scanResults = new ArrayList<ScanResult>();
 
   private final WifiManager wifiManager;
-  private Context context = null;
+  private final Context context = null;
 
   private static IntentFilter intentFilter;
   private BroadcastReceiver receiver;
 
-  private static String DEFAULT_PASSWORD = "password";
-  private static String DEFAULT_SSID = "FTC-1234";
+  private static final String DEFAULT_PASSWORD = "password";
+  private static final String DEFAULT_SSID = "FTC-1234";
 
   String ssid = DEFAULT_SSID;
   String password = DEFAULT_PASSWORD;

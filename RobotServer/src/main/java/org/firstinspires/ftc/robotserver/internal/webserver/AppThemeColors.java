@@ -127,9 +127,9 @@ public class AppThemeColors
 
     protected void initializeFromTheme()
         {
-        textError = AppUtil.getInstance().getColor(R.color.text_error);
-        textWarning = AppUtil.getInstance().getColor(R.color.text_warning);
-        textOkay = AppUtil.getInstance().getColor(R.color.text_okay);
+        textError = AppUtil.getColor(R.color.text_error);
+        textWarning = AppUtil.getColor(R.color.text_warning);
+        textOkay = AppUtil.getColor(R.color.text_okay);
 
         TypedArray typedArray = AppUtil.getInstance().getRootActivity().obtainStyledAttributes(colorAttrArray);
         try {

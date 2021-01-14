@@ -66,7 +66,7 @@ public class EditLegacyModuleControllerActivity extends EditUSBDeviceActivity {
   @Override public String getTag() { return this.getClass().getSimpleName(); }	
   public static final RequestCode requestCode = RequestCode.EDIT_LEGACY_MODULE;
 
-  private static boolean DEBUG = false;
+  private static final boolean DEBUG = false;
 
   private EditText controller_name;
   private ArrayList<DeviceConfiguration> devices = new ArrayList<DeviceConfiguration>();
@@ -96,7 +96,7 @@ public class EditLegacyModuleControllerActivity extends EditUSBDeviceActivity {
     info_port4 = createPortView(R.id.linearLayout4, 4);
     info_port5 = createPortView(R.id.linearLayout5, 5);
 
-    controller_name = (EditText) findViewById(R.id.device_interface_module_name);
+    controller_name = findViewById(R.id.device_interface_module_name);
 
     EditParameters parameters = EditParameters.fromIntent(this, getIntent());
     deserialize(parameters);
@@ -116,7 +116,7 @@ public class EditLegacyModuleControllerActivity extends EditUSBDeviceActivity {
   }
 
   @Override protected void refreshSerialNumber() {
-    TextView serialNumberView = (TextView) findViewById(R.id.serialNumber);
+    TextView serialNumberView = findViewById(R.id.serialNumber);
     serialNumberView.setText(formatSerialNumber(this, controllerConfiguration));
   }
 
@@ -126,12 +126,12 @@ public class EditLegacyModuleControllerActivity extends EditUSBDeviceActivity {
   }
 
   private View createPortView(int id, int portNumber) {
-    LinearLayout layout = (LinearLayout) findViewById(id);
+    LinearLayout layout = findViewById(id);
     View result = getLayoutInflater().inflate(R.layout.simple_device, layout, true);
-    TextView port = (TextView) result.findViewById(R.id.portNumber);
+    TextView port = result.findViewById(R.id.portNumber);
     port.setText(String.format(Locale.getDefault(), "%d", portNumber));
 
-    Spinner spinner = (Spinner)result.findViewById(R.id.choiceSpinner);
+    Spinner spinner = result.findViewById(R.id.choiceSpinner);
     localizeConfigTypeSpinner(ConfigurationType.DisplayNameFlavor.Legacy, spinner);
 
     return result;
@@ -166,7 +166,7 @@ public class EditLegacyModuleControllerActivity extends EditUSBDeviceActivity {
   private void editController_general(DeviceConfiguration controller) {
     //names already gone
     LinearLayout layout = (LinearLayout) findViewByPort(controller.getPort());
-    EditText nameText = (EditText) layout.findViewById(R.id.editTextResult);
+    EditText nameText = layout.findViewById(R.id.editTextResult);
     controller.setName(nameText.getText().toString());
 
     if (controller.getConfigurationType() == BuiltInConfigurationType.MOTOR_CONTROLLER) {
@@ -226,9 +226,9 @@ public class EditLegacyModuleControllerActivity extends EditUSBDeviceActivity {
     handleSpinner(v, R.id.choiceSpinner, device, true);
 
     String name = device.getName();
-    EditText nameText = (EditText) v.findViewById(R.id.editTextResult);
+    EditText nameText = v.findViewById(R.id.editTextResult);
 
-    TextView portNumber = (TextView) v.findViewById(R.id.portNumber);
+    TextView portNumber = v.findViewById(R.id.portNumber);
     int port = Integer.parseInt(portNumber.getText().toString());
     nameText.addTextChangedListener(new UsefulTextWatcher(findViewByPort(port)));
     nameText.setText(name);
@@ -242,9 +242,9 @@ public class EditLegacyModuleControllerActivity extends EditUSBDeviceActivity {
    * @param itemView - the view that holds all the necessary UI elements
    */
   @Override protected void clearDevice(View itemView) {
-    TextView portNumber = (TextView) itemView.findViewById(R.id.portNumber);
+    TextView portNumber = itemView.findViewById(R.id.portNumber);
     int port = Integer.parseInt(portNumber.getText().toString());
-    EditText nameText = (EditText) itemView.findViewById(R.id.editTextResult);
+    EditText nameText = itemView.findViewById(R.id.editTextResult);
 
     nameText.setEnabled(false);
     nameText.setText(disabledDeviceName());
@@ -262,9 +262,9 @@ public class EditLegacyModuleControllerActivity extends EditUSBDeviceActivity {
    * @param type   - the new type that was just selected
    */
   @Override protected void changeDevice(View itemView, ConfigurationType type) {
-    TextView portNumber = (TextView) itemView.findViewById(R.id.portNumber);
+    TextView portNumber = itemView.findViewById(R.id.portNumber);
     int port = Integer.parseInt(portNumber.getText().toString());
-    EditText nameText = (EditText) itemView.findViewById(R.id.editTextResult);
+    EditText nameText = itemView.findViewById(R.id.editTextResult);
     DeviceConfiguration currentModule = devices.get(port);
 
     nameText.setEnabled(true);
@@ -277,11 +277,7 @@ public class EditLegacyModuleControllerActivity extends EditUSBDeviceActivity {
       setButtonVisibility(port, View.VISIBLE);
     } else {
       currentModule.setConfigurationType(type);
-      if (type == BuiltInConfigurationType.NOTHING) {
-        currentModule.setEnabled(false);
-      } else {
-        currentModule.setEnabled(true);
-      }
+      currentModule.setEnabled(type != BuiltInConfigurationType.NOTHING);
       setButtonVisibility(port, View.GONE);
     }
 
@@ -347,12 +343,12 @@ public class EditLegacyModuleControllerActivity extends EditUSBDeviceActivity {
     //view.getParent is RelativeLayout
     //view.getparent.getparent is the LinearLayout around the whole module zone
     LinearLayout layout = (LinearLayout) v.getParent().getParent();
-    TextView portNumber = (TextView) layout.findViewById(R.id.portNumber);
+    TextView portNumber = layout.findViewById(R.id.portNumber);
     int port = Integer.parseInt(portNumber.getText().toString());
     DeviceConfiguration currentModule = devices.get(port);
 
     if (!isController(currentModule)) {
-      Spinner choiceSpinner = (Spinner) layout.findViewById(R.id.choiceSpinner);
+      Spinner choiceSpinner = layout.findViewById(R.id.choiceSpinner);
       ConfigurationTypeAndDisplayName pair = (ConfigurationTypeAndDisplayName)choiceSpinner.getSelectedItem();
       createController(port, pair.configurationType);
     }
@@ -385,7 +381,7 @@ public class EditLegacyModuleControllerActivity extends EditUSBDeviceActivity {
    */
   private void setButtonVisibility(int port, int visibility ) {
     View layout = findViewByPort(port);
-    Button button = (Button) layout.findViewById(R.id.edit_controller_btn);
+    Button button = layout.findViewById(R.id.edit_controller_btn);
     button.setVisibility(visibility);
   }
 
@@ -416,7 +412,7 @@ public class EditLegacyModuleControllerActivity extends EditUSBDeviceActivity {
       isController = true;
     }
     private UsefulTextWatcher(View layout) {
-      TextView portNumber = (TextView) layout.findViewById(R.id.portNumber);
+      TextView portNumber = layout.findViewById(R.id.portNumber);
       port = Integer.parseInt(portNumber.getText().toString());
     }
 

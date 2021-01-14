@@ -111,9 +111,9 @@ public class OpModeMeta
         public @Nullable String autoTransition = null;
         public @Nullable Source source = null;
 
-        public Builder (){};
+        public Builder (){}
 
-        public Builder(OpModeMeta existing)
+            public Builder(OpModeMeta existing)
             {
             this.flavor = existing.flavor;
             this.group = existing.group;

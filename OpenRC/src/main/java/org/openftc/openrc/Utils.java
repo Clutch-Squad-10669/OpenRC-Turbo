@@ -28,8 +28,8 @@ import org.firstinspires.ftc.robotcore.internal.system.AppUtil;
 
 public class Utils
 {
-    private static SharedPreferences openRcPrefs = AppUtil.getDefContext().getSharedPreferences("openrc", Context.MODE_PRIVATE);
-    private static String acknowledgedLegalityPrefKey = "acknowledgedLegality";
+    private static final SharedPreferences openRcPrefs = AppUtil.getDefContext().getSharedPreferences("openrc", Context.MODE_PRIVATE);
+    private static final String acknowledgedLegalityPrefKey = "acknowledgedLegality";
 
     public static boolean hasAcknowledgedLegalityStatus()
     {

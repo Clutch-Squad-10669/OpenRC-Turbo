@@ -51,7 +51,7 @@ public class MatrixServoController implements ServoController {
     private final static byte SERVO_DISABLE_ALL  = 0x00;
     private final static byte I2C_DATA_OFFSET    = 0x04;
 
-    private MatrixMasterController master;
+    private final MatrixMasterController master;
 
     protected PwmStatus pwmStatus;
     protected double[] servoCache = new double[MAX_SERVOS];
@@ -129,7 +129,7 @@ public class MatrixServoController implements ServoController {
             master.waitOnRead();
         }
 
-        return ((double)servoCache[channel] / SERVO_POSITION_MAX);
+        return (servoCache[channel] / SERVO_POSITION_MAX);
     }
 
     @Override public Manufacturer getManufacturer()

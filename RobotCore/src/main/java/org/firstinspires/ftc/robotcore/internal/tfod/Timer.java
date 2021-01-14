@@ -52,7 +52,7 @@ import java.util.concurrent.TimeUnit;
  * @author Vasu Agrawal
  */
 public class Timer {
-  private static boolean NO_TIMERS = true;
+  private static final boolean NO_TIMERS = true;
 
   private final ArrayDeque<NamedTimestampNanos> times = new ArrayDeque<>();
   private final String timerName;

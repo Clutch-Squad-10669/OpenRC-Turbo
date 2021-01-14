@@ -53,7 +53,7 @@ public class FT_EE_Ctrl
     private static final int SELF_POWERED = 64;
     private static final int BUS_POWERED = 128;
     private static final int USB_REMOTE_WAKEUP = 32;
-    private FtDevice mDevice;
+    private final FtDevice mDevice;
     short mEepromType;
     int mEepromSize;
     boolean mEepromBlank;
@@ -89,14 +89,14 @@ public class FT_EE_Ctrl
             }
         else
             {
-            int status = this.mDevice.getConnection().controlTransfer(64, 145, value, offset, (byte[]) null, 0, 0);
+            int status = this.mDevice.getConnection().controlTransfer(64, 145, value, offset, null, 0, 0);
             FtDevice.throwIfStatus(status, "writeWord");
             }
         }
 
     public int eraseEeprom() throws RobotUsbException
         {
-        return this.mDevice.getConnection().controlTransfer(64, 146, 0, 0, (byte[]) null, 0, 0);
+        return this.mDevice.getConnection().controlTransfer(64, 146, 0, 0, null, 0, 0);
         }
 
     public short programEeprom(FT_EEPROM eeprom) throws RobotUsbException
@@ -161,23 +161,9 @@ public class FT_EE_Ctrl
         byte mP = (byte) (dataRead >> 8);
         ee.MaxPower = (short) (2 * mP);
         byte P = (byte) dataRead;
-        if ((P & 64) == 64 && (P & 128) == 128)
-            {
-            ee.SelfPowered = true;
-            }
-        else
-            {
-            ee.SelfPowered = false;
-            }
+            ee.SelfPowered = (P & 64) == 64 && (P & 128) == 128;
 
-        if ((P & 32) == 32)
-            {
-            ee.RemoteWakeup = true;
-            }
-        else
-            {
-            ee.RemoteWakeup = false;
-            }
+            ee.RemoteWakeup = (P & 32) == 32;
 
         }
 
@@ -210,23 +196,9 @@ public class FT_EE_Ctrl
     void getDeviceControl(Object ee, int dataRead)
         {
         FT_EEPROM ft = (FT_EEPROM) ee;
-        if ((dataRead & 4) > 0)
-            {
-            ft.PullDownEnable = true;
-            }
-        else
-            {
-            ft.PullDownEnable = false;
-            }
+            ft.PullDownEnable = (dataRead & 4) > 0;
 
-        if ((dataRead & 8) > 0)
-            {
-            ft.SerNumEnable = true;
-            }
-        else
-            {
-            ft.SerNumEnable = false;
-            }
+            ft.SerNumEnable = (dataRead & 8) > 0;
 
         }
 
@@ -316,7 +288,7 @@ public class FT_EE_Ctrl
         else
             {
             short address1 = 192;
-            this.writeWord(address1, (short) data);
+            this.writeWord(address1, data);
             dataRead[0] = this.readWord((short) 192);
             dataRead[1] = this.readWord((short) 64);
             dataRead[2] = this.readWord((short) 0);

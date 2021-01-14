@@ -487,9 +487,9 @@ public abstract class NanoHTTPD {
      */
     public static class SecureServerSocketFactory implements ServerSocketFactory {
 
-        private SSLServerSocketFactory sslServerSocketFactory;
+        private final SSLServerSocketFactory sslServerSocketFactory;
 
-        private String[] sslProtocols;
+        private final String[] sslProtocols;
 
         public SecureServerSocketFactory(SSLServerSocketFactory sslServerSocketFactory, String[] sslProtocols) {
             this.sslServerSocketFactory = sslServerSocketFactory;
@@ -653,8 +653,8 @@ public abstract class NanoHTTPD {
             this.tempFileManager = tempFileManager;
             this.inputStream = new BufferedInputStream(inputStream, HTTPSession.BUFSIZE);
             this.outputStream = outputStream;
-            this.remoteIp = inetAddress.isLoopbackAddress() || inetAddress.isAnyLocalAddress() ? "127.0.0.1" : inetAddress.getHostAddress().toString();
-            this.remoteHostname = inetAddress.isLoopbackAddress() || inetAddress.isAnyLocalAddress() ? "localhost" : inetAddress.getHostName().toString();
+            this.remoteIp = inetAddress.isLoopbackAddress() || inetAddress.isAnyLocalAddress() ? "127.0.0.1" : inetAddress.getHostAddress();
+            this.remoteHostname = inetAddress.isLoopbackAddress() || inetAddress.isAnyLocalAddress() ? "localhost" : inetAddress.getHostName();
             this.headers = new HashMap<String, String>();
         }
 
@@ -762,7 +762,7 @@ public abstract class NanoHTTPD {
                                     // files uploaded using the same field Id
                                     if (!fileName.isEmpty()) {
                                         if (pcount > 0)
-                                            partName = partName + String.valueOf(pcount++);
+                                            partName = partName + pcount++;
                                         else
                                             pcount++;
                                     }
@@ -1472,7 +1472,7 @@ public abstract class NanoHTTPD {
          */
         private InputStream data;
 
-        private long contentLength;
+        private final long contentLength;
 
         /**
          * Headers for the HTTP response. Use addHeader() to add lines. the
@@ -1484,7 +1484,7 @@ public abstract class NanoHTTPD {
             public String put(String key, String value) {
                 lowerCaseHeader.put(key == null ? key : key.toLowerCase(), value);
                 return super.put(key, value);
-            };
+            }
         };
 
         /**
@@ -1796,11 +1796,11 @@ public abstract class NanoHTTPD {
      */
     public interface TempFile {
 
-        public void delete() throws Exception;
+        void delete() throws Exception;
 
-        public String getName();
+        String getName();
 
-        public OutputStream open() throws Exception;
+        OutputStream open() throws Exception;
     }
 
     /**
@@ -1815,7 +1815,7 @@ public abstract class NanoHTTPD {
 
         void clear();
 
-        public TempFile createTempFile(String filename_hint) throws Exception;
+        TempFile createTempFile(String filename_hint) throws Exception;
     }
 
     /**
@@ -1823,7 +1823,7 @@ public abstract class NanoHTTPD {
      */
     public interface TempFileManagerFactory {
 
-        public TempFileManager create();
+        TempFileManager create();
     }
 
     /**
@@ -1831,7 +1831,7 @@ public abstract class NanoHTTPD {
      */
     public interface ServerSocketFactory {
 
-        public ServerSocket create() throws IOException;
+        ServerSocket create() throws IOException;
 
     }
 
@@ -1888,7 +1888,7 @@ public abstract class NanoHTTPD {
         try {
             Enumeration<URL> resources = NanoHTTPD.class.getClassLoader().getResources(resourceName);
             while (resources.hasMoreElements()) {
-                URL url = (URL) resources.nextElement();
+                URL url = resources.nextElement();
                 Properties properties = new Properties();
                 InputStream stream = null;
                 try {
@@ -1904,7 +1904,7 @@ public abstract class NanoHTTPD {
         } catch (IOException e) {
             LOG.log(Level.INFO, "no mime types available at " + resourceName);
         }
-    };
+    }
 
     /**
      * Creates an SSLSocketFactory for HTTPS. Pass a loaded KeyStore and an

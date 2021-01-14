@@ -1021,7 +1021,7 @@ exports.handler.addCommands({
             if (!mark) {
                 rangePositions.forEach(function(pos) { editor.pushEmacsMark(pos); });
                 editor.setEmacsMark(rangePositions[rangePositions.length-1]);
-                return;
+
             }
             function moveToMark() {
                 var mark = editor.popEmacsMark();

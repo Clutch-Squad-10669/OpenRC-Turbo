@@ -40,7 +40,7 @@ import java.util.Set;
  */
 public class Hardware {
 
-  private static boolean mIsIFC = CheckIfIFC();
+  private static final boolean mIsIFC = CheckIfIFC();
     
   /**
    * Get a list of all game controller ID's connected to this device

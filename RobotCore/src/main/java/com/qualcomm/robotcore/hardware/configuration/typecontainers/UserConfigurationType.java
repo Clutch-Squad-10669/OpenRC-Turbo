@@ -66,7 +66,8 @@ public abstract class UserConfigurationType implements ConfigurationType, Serial
     protected @Expose String         description; // TODO(Noah): Make private once we get rid of the deprecated annotations
 
     private @Expose @NonNull final DeviceFlavor flavor;
-    private @Expose @NonNull       String xmlTag;
+    private @Expose @NonNull
+    final String xmlTag;
     private @Expose                String[] xmlTagAliases;
     private @Expose                boolean builtIn = false;
     private @Expose                boolean isOnBotJava;

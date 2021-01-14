@@ -35,5 +35,5 @@ package org.firstinspires.ftc.robotcore.external;
  * to define states for a given state machine.
  */
 public interface Event {
-    public String getName();
+    String getName();
 }

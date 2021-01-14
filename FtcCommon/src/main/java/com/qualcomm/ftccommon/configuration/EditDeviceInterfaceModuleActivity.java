@@ -71,11 +71,11 @@ public class EditDeviceInterfaceModuleActivity extends EditUSBDeviceActivity {
     String[] strings = getResources().getStringArray(R.array.device_interface_module_options_array);
     listKeys = DisplayNameAndRequestCode.fromArray(strings);
 
-    ListView listView = (ListView) findViewById(R.id.listView_devices);
+    ListView listView = findViewById(R.id.listView_devices);
     listView.setAdapter(new ArrayAdapter<DisplayNameAndRequestCode>(this, android.R.layout.simple_list_item_1, listKeys));
     listView.setOnItemClickListener(editLaunchListener);
 
-    device_interface_module_name = (EditText) findViewById(R.id.device_interface_module_name);
+    device_interface_module_name = findViewById(R.id.device_interface_module_name);
 
     EditParameters parameters = EditParameters.fromIntent(this, getIntent());
     deserialize(parameters);
@@ -88,7 +88,7 @@ public class EditDeviceInterfaceModuleActivity extends EditUSBDeviceActivity {
   }
 
   @Override protected void refreshSerialNumber() {
-    TextView serialNumberView = (TextView) findViewById(R.id.serialNumber);
+    TextView serialNumberView = findViewById(R.id.serialNumber);
     serialNumberView.setText(formatSerialNumber(this, controllerConfiguration));
   }
 
@@ -97,7 +97,7 @@ public class EditDeviceInterfaceModuleActivity extends EditUSBDeviceActivity {
     super.onStart();
   }
 
-  private AdapterView.OnItemClickListener editLaunchListener = new AdapterView.OnItemClickListener() {
+  private final AdapterView.OnItemClickListener editLaunchListener = new AdapterView.OnItemClickListener() {
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
       DisplayNameAndRequestCode key = listKeys[position];

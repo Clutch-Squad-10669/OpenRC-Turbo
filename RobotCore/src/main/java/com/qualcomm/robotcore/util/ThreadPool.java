@@ -85,7 +85,7 @@ public class ThreadPool
     public static final String TAG = "ThreadPool";
 
     /** maps Thread.id to OS notion of thread id */
-    private static LongSparseArray<Integer> threadIdMap = new LongSparseArray<Integer>();
+    private static final LongSparseArray<Integer> threadIdMap = new LongSparseArray<Integer>();
 
     //----------------------------------------------------------------------------------------------
     // Singleton
@@ -254,8 +254,8 @@ public class ThreadPool
     public static class SingletonResult<T>
         {
         private Future<T> future = null;
-        private long      nsDeadline;
-        private Singleton<T> singleton;
+        private final long      nsDeadline;
+        private final Singleton<T> singleton;
 
         public SingletonResult(int msAwaitDefault, Singleton<T> singleton, Future<T> future)
             {
@@ -437,7 +437,7 @@ public class ThreadPool
      * those keys are weak references, they won't keep our executors alive longer than they otherwise
      * would live, yet allows us to find them and iterate over them when we need to.
      */
-    private       static Map<ExecutorService,Integer> extantExecutors     = new WeakHashMap<ExecutorService,Integer>();
+    private       static final Map<ExecutorService,Integer> extantExecutors     = new WeakHashMap<ExecutorService,Integer>();
     private final static Object                       extantExecutorsLock = new Object();
     private       static ExecutorService              defaultThreadPool   = null;
     private       static ExecutorService              defaultSerialThreadPool = null;

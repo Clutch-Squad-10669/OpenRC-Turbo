@@ -186,7 +186,7 @@ public class FtcWifiDirectRememberedGroupsActivity extends ThemedActivity
             {
             @Override public void run()
                 {
-                ListView groupList = (ListView) findViewById(R.id.groupList);
+                ListView groupList = findViewById(R.id.groupList);
                 Collections.sort(names);
                 if (names.isEmpty())
                     {

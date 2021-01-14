@@ -36,6 +36,7 @@ import com.vuforia.InstanceId;
 
 import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 
 /**
@@ -63,7 +64,7 @@ public class VuMarkInstanceId
             UNKNOWN,
             NUMERIC,
             STRING,
-            DATA;
+            DATA
         }
 
     //----------------------------------------------------------------------------------------------
@@ -91,7 +92,7 @@ public class VuMarkInstanceId
         switch (this.type)
             {
             case NUMERIC: this.numericValue = instanceId.getNumericValue().intValue(); break;
-            case STRING: this.stringValue = new String(dataFrom(instanceId), Charset.forName("US-ASCII")); break;
+            case STRING: this.stringValue = new String(dataFrom(instanceId), StandardCharsets.US_ASCII); break;
             case DATA: this.dataValue = dataFrom(instanceId); break;
             }
         }

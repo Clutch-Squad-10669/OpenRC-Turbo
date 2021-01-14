@@ -62,8 +62,8 @@ public class WifiMuteStateMachine extends StateMachine {
     private final static int WIFI_MUTE_WARN = 10;
     private final static int WIFI_MUTE_PERIOD = 1;
 
-    private WifiManager wifiManager;
-    private Activity activity;
+    private final WifiManager wifiManager;
+    private final Activity activity;
 
     private final WifiState blackhole = new WifiState();
     private final WifiOn wifiOn = new WifiOn();
@@ -458,7 +458,7 @@ public class WifiMuteStateMachine extends StateMachine {
     protected Toast makeToast(Activity activity, String msg)
     {
         Toast toast = Toast.makeText(activity.getApplicationContext(), msg, Toast.LENGTH_SHORT);
-        TextView message = (TextView) toast.getView().findViewById(android.R.id.message);
+        TextView message = toast.getView().findViewById(android.R.id.message);
         message.setTextSize(18);
         toast.show();
         return toast;

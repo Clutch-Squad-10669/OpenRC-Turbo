@@ -59,11 +59,11 @@ public class MotionDetection implements SensorEventListener {
 
     private final double DEFAULT_DETECTION_THRESHOLD = 2.0;
     private final int DEFAULT_RATE_LIMIT_SECONDS = 1;
-    private double detectionThreshold;
+    private final double detectionThreshold;
     private int rateLimitSeconds;
     private boolean listening;
-    private CopyOnWriteArrayList<MotionDetectionListener> listeners = new CopyOnWriteArrayList<>();
-    private Deadline rateLimiter;
+    private final CopyOnWriteArrayList<MotionDetectionListener> listeners = new CopyOnWriteArrayList<>();
+    private final Deadline rateLimiter;
 
     public class Vector {
         double x;

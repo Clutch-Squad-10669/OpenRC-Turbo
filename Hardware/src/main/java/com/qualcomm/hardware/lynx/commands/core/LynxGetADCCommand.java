@@ -94,9 +94,9 @@ public class LynxGetADCCommand extends LynxDekaInterfaceCommand<LynxGetADCRespon
         /** units are raw counts */
         RAW(1);
         public final byte bVal; Mode(int bVal) {this.bVal = (byte)bVal; }
-        };
+        }
 
-    public LynxGetADCCommand(LynxModuleIntf module)
+        public LynxGetADCCommand(LynxModuleIntf module)
         {
         super(module);
         this.response = new LynxGetADCResponse(module);

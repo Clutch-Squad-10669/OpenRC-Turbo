@@ -232,7 +232,7 @@ public class ProjectsUtil {
   static Map<String, String> getSamples(HardwareItemMap hardwareItemMap) throws IOException {
     Map<String, String> map = new TreeMap<>();
     AssetManager assetManager = AppUtil.getDefContext().getAssets();
-    List<String> sampleFileNames = Arrays.asList(assetManager.list(BLOCKS_SAMPLES_PATH));
+    String[] sampleFileNames = assetManager.list(BLOCKS_SAMPLES_PATH);
     for (String filename : sampleFileNames) {
       if (filename.endsWith(BLOCKS_BLK_EXT)) {
         String sampleName = filename.substring(0, filename.length() - BLOCKS_BLK_EXT.length());

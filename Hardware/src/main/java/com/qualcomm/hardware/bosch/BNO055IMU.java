@@ -516,9 +516,9 @@ public interface BNO055IMU
     // Enumerations to make all of the above work
     //----------------------------------------------------------------------------------------------
 
-    public static final I2cAddr I2CADDR_UNSPECIFIED = I2cAddr.zero();
-    public static final I2cAddr I2CADDR_DEFAULT     = I2cAddr.create7bit(0x28);
-    public static final I2cAddr I2CADDR_ALTERNATE   = I2cAddr.create7bit(0x29);
+    I2cAddr I2CADDR_UNSPECIFIED = I2cAddr.zero();
+    I2cAddr I2CADDR_DEFAULT     = I2cAddr.create7bit(0x28);
+    I2cAddr I2CADDR_ALTERNATE   = I2cAddr.create7bit(0x29);
 
     enum TempUnit { CELSIUS(0), FARENHEIT(1); public final byte bVal; TempUnit(int i)  { bVal =(byte)i; }
         public org.firstinspires.ftc.robotcore.external.navigation.TempUnit toTempUnit()

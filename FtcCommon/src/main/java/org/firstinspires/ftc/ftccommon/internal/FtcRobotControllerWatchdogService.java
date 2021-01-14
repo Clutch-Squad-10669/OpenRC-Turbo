@@ -114,11 +114,7 @@ public class FtcRobotControllerWatchdogService extends Service
 
     public static boolean isFtcRobotControllerActivity(Activity activity) {
         try {
-            if (Class.forName("org.firstinspires.ftc.robotcontroller.internal.FtcRobotControllerActivity") == activity.getClass()) {
-                return true;
-            } else {
-                return false;
-            }
+            return Class.forName("org.firstinspires.ftc.robotcontroller.internal.FtcRobotControllerActivity") == activity.getClass();
         } catch (ClassNotFoundException|RuntimeException e) {
             return false;
         }

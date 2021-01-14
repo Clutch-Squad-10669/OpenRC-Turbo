@@ -63,7 +63,7 @@ public class LibUsbDevice extends NativeObject
 
     protected final boolean traceEnabled;
 
-    private UsbDevice javaUsbDevice;
+    private final UsbDevice javaUsbDevice;
 
     //----------------------------------------------------------------------------------------------
     // Construction

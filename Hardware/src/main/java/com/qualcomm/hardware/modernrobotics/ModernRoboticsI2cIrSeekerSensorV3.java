@@ -261,7 +261,7 @@ public class ModernRoboticsI2cIrSeekerSensorV3 extends I2cDeviceSynchDevice<I2cD
     public synchronized IrSeekerIndividualSensor[] getIndividualSensors()
         {
         // we don't know the angle of these sensors so we will give a bad estimate; -1 for left, +1 for right
-        IrSeekerIndividualSensor sensors[] = new IrSeekerIndividualSensor[2];
+        IrSeekerIndividualSensor[] sensors = new IrSeekerIndividualSensor[2];
 
         /* TODO: the scaling here seems to be wrong: we've got 16 bit values, and we're scaling by an 8 bit max.
            TODO: We don't know whether they're signed or unsigned 16 bit values, but either way, the result won't be in [-1,1].

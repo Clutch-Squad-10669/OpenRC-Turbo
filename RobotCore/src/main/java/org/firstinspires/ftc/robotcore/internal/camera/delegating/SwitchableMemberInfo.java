@@ -53,7 +53,7 @@ class SwitchableMemberInfo implements Camera.StateCallback, CameraControls
     // State
     //------------------------------------------------------------------------------------------
 
-    private RefCountedSwitchableCameraImpl switchableCamera;
+    private final RefCountedSwitchableCameraImpl switchableCamera;
     private final Object          localLock = new Object();   // take outerLock first if you need to take both
     private final CameraName      cameraName;
     private       Camera          camera = null;              // once non-null, never null again until we destruct
