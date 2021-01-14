@@ -15,7 +15,7 @@ dependencies {
      * Other Modules
      */
     implementation project(':FtcRobotController')
-    implementation 'com.arcrobotics:ftclib:2.0.12'
+    implementation 'com.arcrobotics:ftclib:1.1.6'
     implementation 'com.acmerobotics.roadrunner:core:0.5.3'
     implementation 'com.acmerobotics.dashboard:dashboard:0.3.10'
     implementation 'com.arcrobotics.ftclib:vision:1.1.0'
