@@ -20,6 +20,8 @@ class bounceBaccPipeline(
     private var mat: Mat
     private var ret: Mat
 
+    private lateinit var lastRect: Rect
+
     /** enum class for Height of the stone **/
     enum class Height {
         ZERO, ONE, FOUR
@@ -103,6 +105,7 @@ class bounceBaccPipeline(
             }
 
             /**drawing widest bounding rectangle to ret in blue**/
+            lastRect = maxRect;
             Imgproc.rectangle(ret, maxRect, Scalar(0.0, 0.0, 255.0), 2)
 
             /** drawing a red line to show the horizon (any above the horizon is not checked to be a ring stack **/
@@ -170,9 +173,21 @@ class bounceBaccPipeline(
         return center
     }
 
-    fun getRectWidth(): Int {
-        return ret.width()
+    fun getRectWidth(): Double {
+        val width = lastRect.size().width
+        return width
     }
+
+    fun getRectHeight(): Double {
+        val height = lastRect.size().height
+        return height
+    }
+
+    fun getRectSize(): Size {
+        val size = lastRect.size()
+        return size
+    }
+
 }
 
 var distanceWidthLUT: InterpLUT = object : InterpLUT() {
@@ -202,6 +217,7 @@ var distanceCenterLUT: InterpLUT = object : InterpLUT() {
         createLUT()
     }
 }
+
 
 
 
