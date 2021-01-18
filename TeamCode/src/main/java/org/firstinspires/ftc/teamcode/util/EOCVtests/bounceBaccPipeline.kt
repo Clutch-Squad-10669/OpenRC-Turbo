@@ -105,7 +105,7 @@ class bounceBaccPipeline(
             }
 
             /**drawing widest bounding rectangle to ret in blue**/
-            lastRect = maxRect;
+            lastRect = maxRect
             Imgproc.rectangle(ret, maxRect, Scalar(0.0, 0.0, 255.0), 2)
 
             /** drawing a red line to show the horizon (any above the horizon is not checked to be a ring stack **/
@@ -126,6 +126,7 @@ class bounceBaccPipeline(
             )
 
             if (debug) telemetry?.addData("Vision: maxW", maxWidth)
+
 
             /** checking if widest width is greater than equal to minimum width
              * using Kotlin if expression (Java ternary) to set height variable
@@ -167,20 +168,16 @@ class bounceBaccPipeline(
     }
 
     fun getRectCenter(): Vector2d {
-        val rect = Imgproc.boundingRect(ret)
-        val center = Vector2d(((rect.x + rect.width) / 2).toDouble(), ((rect.y + rect.width) / 2).toDouble())
-
-        return center
+        val rect = lastRect
+        return Vector2d(((rect.x + rect.width) / 2).toDouble(), ((rect.y + rect.width) / 2).toDouble())
     }
 
     fun getRectWidth(): Double {
-        val width = lastRect.size().width
-        return width
+        return lastRect.size().width
     }
 
     fun getRectHeight(): Double {
-        val height = lastRect.size().height
-        return height
+        return lastRect.size().height
     }
 
     fun getRectSize(): Size {
