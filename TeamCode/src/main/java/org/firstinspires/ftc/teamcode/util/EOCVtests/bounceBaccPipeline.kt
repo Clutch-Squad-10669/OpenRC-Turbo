@@ -171,11 +171,8 @@ class bounceBaccPipeline(
     }
 
     fun getRectWidth(): Int {
-        val rect = Imgproc.boundingRect(ret)
-        val width = rect.width
-        return width
+        return ret.width()
     }
-
 }
 
 var distanceWidthLUT: InterpLUT = object : InterpLUT() {
