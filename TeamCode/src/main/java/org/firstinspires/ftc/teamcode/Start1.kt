@@ -64,6 +64,13 @@ class Start1 : LinearOpMode() {
     private var packet = TelemetryPacket()
 
     //initialize the pipeline and  camera
+
+    /*
+    he protecc
+    he atacc
+    but most importantly
+    he bouncebacc
+     */
     private lateinit var pipeline: bounceBaccPipeline
     private var camera: OpenCvCamera = if (USING_WEBCAM) configureWebCam()
     else configurePhoneCamera()
